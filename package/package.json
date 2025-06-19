@@ -12,12 +12,12 @@
         "js",
         "javascript"
     ],
-    "homepage": "https://github.com/alpheusday/scrolia",
-    "bugs": "https://github.com/alpheusday/scrolia/issues",
+    "homepage": "https://github.com/scrolia/vanilla",
+    "bugs": "https://github.com/scrolia/vanilla/issues",
     "repository": {
         "type": "git",
-        "url": "https://github.com/alpheusday/scrolia.git",
-        "directory": "packages/vanilla"
+        "url": "https://github.com/scrolia/vanilla.git",
+        "directory": "package"
     },
     "license": "MIT",
     "author": "Alpheus Tang",
