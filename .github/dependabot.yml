@@ -1,0 +1,22 @@
+version: 2
+updates:
+    - package-ecosystem: "npm"
+      directory: "/"
+      schedule:
+          interval: "daily"
+          time: "00:00"
+          timezone: "Etc/UTC"
+      allow:
+          # root
+          - dependency-name: "@apst/biome"
+          - dependency-name: "@apst/tsconfig"
+          - dependency-name: "@biomejs/biome"
+          - dependency-name: "@swc/core"
+          - dependency-name: "sass"
+          - dependency-name: "tsup"
+          - dependency-name: "typedoc"
+          - dependency-name: "typedoc-plugin-markdown"
+          - dependency-name: "typescript"
+          # vite
+          - dependency-name: "vite"
+          - dependency-name: "vite-tsconfig-paths"
