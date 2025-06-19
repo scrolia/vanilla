@@ -20,7 +20,10 @@
         "directory": "package"
     },
     "license": "MIT",
-    "author": "Alpheus Tang",
+    "author": {
+        "name": "Alpheus Tang",
+        "url": "https://alpheus.day"
+    },
     "exports": {
         ".": {
             "types": "./dist/index.d.ts",
