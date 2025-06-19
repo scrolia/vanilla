@@ -1,0 +1,18 @@
+{
+    "$schema": "https://typedoc-plugin-markdown.org/schema.json",
+    "entryPoints": [
+        "./src/index.ts"
+    ],
+    "includeVersion": true,
+    "out": "../apis",
+    "cleanOutputDir": true,
+    "plugin": [
+        "typedoc-plugin-markdown",
+        "../scripts/insert-link.js"
+    ],
+    "readme": "none",
+    "entryFileName": "README",
+    "hidePageHeader": true,
+    "useCodeBlocks": true,
+    "indexFormat": "table"
+}

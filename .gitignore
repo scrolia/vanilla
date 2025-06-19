@@ -1,0 +1,16 @@
+# Caches
+__MACOSX/
+.DS_Store
+
+# Modules
+node_modules/
+
+# Builds
+dist/
+
+# TypeScript
+*.tsbuildinfo
+
+# Logs
+*.log
+pnpm-debug.log*

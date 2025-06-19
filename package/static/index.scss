@@ -1,0 +1,114 @@
+:root {
+    --scrollbar-base: #99999955;
+    --scrollbar-hover: #99999977;
+    --scrollbar-active: #99999999;
+}
+
+@mixin container {
+    position: relative;
+    width: 100%;
+    min-width: inherit;
+    max-width: inherit;
+    height: 100%;
+    min-height: inherit;
+    max-height: inherit;
+}
+
+.sla-nsb {
+    // IE
+    -ms-overflow-style: none;
+    // Firefox
+    scrollbar-width: none;
+
+    // Chromium, Safari
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.sla {
+    * {
+        box-sizing: border-box;
+    }
+
+    &.sla-container {
+        @include container;
+    }
+
+    .sla-content {
+        @include container;
+
+        &.sla-child {
+            overflow: scroll;
+        }
+    }
+
+    .sla-track {
+        position: fixed;
+        z-index: 1;
+
+        &.sla-child {
+            position: absolute;
+        }
+
+        &.sla-x {
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 16px;
+        }
+
+        &.sla-y {
+            top: 0;
+            right: 0;
+            width: 16px;
+            height: 100%;
+        }
+
+        &:hover {
+            .sla-thumb {
+                opacity: 1;
+            }
+        }
+    }
+
+    .sla-thumb {
+        position: absolute;
+        background-color: var(--scrollbar-base);
+        border-radius: 20px;
+        opacity: 0;
+        transition:
+            background-color 0.2s,
+            opacity 0.2s;
+
+        &.sla-x {
+            width: calc(100% - 10px);
+            height: 10px;
+            margin-top: 2.5px;
+            margin-bottom: 2.5px;
+            margin-left: 5px;
+        }
+
+        &.sla-y {
+            width: 10px;
+            height: calc(100% - 10px);
+            margin-top: 5px;
+            margin-right: 2.5px;
+            margin-left: 2.5px;
+        }
+
+        &:hover {
+            background-color: var(--scrollbar-hover);
+            opacity: 1;
+        }
+
+        &:active {
+            background-color: var(--scrollbar-active);
+            opacity: 1;
+        }
+
+        &.sla-active {
+            opacity: 1;
+        }
+    }
+}

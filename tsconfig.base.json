@@ -1,0 +1,3 @@
+{
+    "extends": "./node_modules/@apst/tsconfig/tsconfig.lib.json"
+}

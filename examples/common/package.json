@@ -1,0 +1,16 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview"
+    },
+    "devDependencies": {
+        "vite": "^6.3.5",
+        "vite-tsconfig-paths": "^5.1.4"
+    },
+    "dependencies": {
+        "@scrolia/vanilla": "workspace:~"
+    }
+}
