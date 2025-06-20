@@ -6,7 +6,7 @@
 function createScrollbar(options?): CreateScrollbar;
 ```
 
-Defined in: package/src/base/index.ts:77
+Defined in: [package/src/base/index.ts:77](https://github.com/scrolia/vanilla/blob/784fa66d2c3095879dee41e04a2e1311a42678e0/package/src/base/index.ts#L77)
 
 Function to create the scrollbar.
 

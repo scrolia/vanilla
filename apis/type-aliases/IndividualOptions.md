@@ -6,6 +6,6 @@
 type IndividualOptions = Format<Partial<CompleteIndividualOptions>>;
 ```
 
-Defined in: package/src/@types/options.ts:43
+Defined in: [package/src/@types/options.ts:43](https://github.com/scrolia/vanilla/blob/784fa66d2c3095879dee41e04a2e1311a42678e0/package/src/@types/options.ts#L43)
 
 Individual options for each axis.

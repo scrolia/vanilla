@@ -6,7 +6,7 @@
 type OnActiveOptions = object;
 ```
 
-Defined in: package/src/@types/options.ts:25
+Defined in: [package/src/@types/options.ts:25](https://github.com/scrolia/vanilla/blob/784fa66d2c3095879dee41e04a2e1311a42678e0/package/src/@types/options.ts#L25)
 
 Options for the `onActive` function.
 
@@ -18,6 +18,6 @@ Options for the `onActive` function.
 isActive: boolean;
 ```
 
-Defined in: package/src/@types/options.ts:29
+Defined in: [package/src/@types/options.ts:29](https://github.com/scrolia/vanilla/blob/784fa66d2c3095879dee41e04a2e1311a42678e0/package/src/@types/options.ts#L29)
 
 Whether the scrollbar is active or not.

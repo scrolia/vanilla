@@ -1,6 +1,6 @@
 [< Back](../README.md)
 
-# @scrolia/vanilla v0.4.0
+# @scrolia/vanilla v0.5.0
 
 ## Type Aliases
 
