@@ -23,7 +23,7 @@ const setupScrollbar = (outer: HTMLDivElement, inner: HTMLDivElement): void => {
 
     const destroyScrollbar: () => void = scrollbar.attach(el);
 
-    window.addEventListener("beforeunload", destroyScrollbar);
+    window.addEventListener("unload", destroyScrollbar);
 };
 
 const subBlock: HTMLDivElement = document.createElement("div");

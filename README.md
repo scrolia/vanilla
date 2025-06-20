@@ -34,18 +34,14 @@ import { createScrollbar } from "@scrolia/vanilla";
 
 import "@scrolia/vanilla/css";
 
-// Get element with id "container"
 const container: HTMLElement | null = document.getElementById("container");
 
 if (!container) throw new Error("Container not found");
 
-// Create scrollbar
 const scrollbar: CreateScrollbar = createScrollbar();
 
-// Attach scrollbar to container
 const destroyScrollbar: () => void = scrollbar.attach(container);
 
-// Destroy scrollbar on unload
 window.addEventListener("unload", destroyScrollbar);
 ```
 

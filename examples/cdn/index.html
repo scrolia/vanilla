@@ -70,7 +70,7 @@
 
             const destroyScrollbar = scrollbar.attach(el);
 
-            window.addEventListener("beforeunload", destroyScrollbar);
+            window.addEventListener("unload", destroyScrollbar);
         }
 
         const root = document.getElementById("root");
