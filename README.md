@@ -1,4 +1,4 @@
-# Scrolia
+# Scrolia Vanilla
 
 A customizable scrollbar component.
 
