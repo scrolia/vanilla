@@ -3,12 +3,9 @@
 # Type Alias: Options
 
 ```ts
-type Options = Format<Partial<CompleteOptionsBase> & Partial<SharedIndividualOptions> & Partial<{
-  x: IndividualOptions;
-  y: IndividualOptions;
-}>>;
+type Options = Format<Partial<CompleteOptions>>;
 ```
 
-Defined in: [package/src/@types/options.ts:81](https://github.com/scrolia/vanilla/blob/784fa66d2c3095879dee41e04a2e1311a42678e0/package/src/@types/options.ts#L81)
+Defined in: [package/src/@types/options.ts:141](https://github.com/scrolia/vanilla/blob/c47359c5a19f69d6a4fe4e7fb520642ec24545b4/package/src/@types/options.ts#L141)
 
 Scrollbar options.

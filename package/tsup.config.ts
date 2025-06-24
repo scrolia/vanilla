@@ -12,17 +12,6 @@ const options: Options = {
     tsconfig: "./tsconfig.json",
 };
 
-const iifeOptions: Options = {
-    ...options,
-    target: "es5",
-    outExtension: () => ({
-        js: ".js",
-    }),
-    format: "iife",
-    sourcemap: false,
-    globalName: "scrolia",
-};
-
 export default defineConfig([
     {
         ...options,
@@ -32,20 +21,5 @@ export default defineConfig([
         ...options,
         format: "cjs",
         dts: true,
-    },
-    // iife
-    {
-        ...iifeOptions,
-        entry: {
-            scrolia: "./src/index.ts",
-        },
-    },
-    // iife minify
-    {
-        ...iifeOptions,
-        entry: {
-            "scrolia.min": "./src/index.ts",
-        },
-        minify: true,
     },
 ]);

@@ -6,6 +6,6 @@
 type CreateTrackY = CreateComponent;
 ```
 
-Defined in: [package/src/base/components/track/y.ts:11](https://github.com/scrolia/vanilla/blob/784fa66d2c3095879dee41e04a2e1311a42678e0/package/src/base/components/track/y.ts#L11)
+Defined in: package/src/components/track/y.ts:10
 
-Result of the `createTrackY` function.
+Result of the `createTracky` function.

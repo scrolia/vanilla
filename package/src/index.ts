@@ -1,14 +1,21 @@
 export type {
-    IndividualOptions,
-    OnActiveOptions,
+    OnDragEndOptions,
+    OnDragMoveOptions,
+    OnDragMoveResult,
+    OnDragStartOptions,
+    OnScrollOptions,
+    OnScrollResult,
+    OnSetLengthOptions,
+    OnSetLengthResult,
     Options,
+    Position,
 } from "#/@types/options";
-export type { CreateScrollbar } from "#/base";
-export type { CreateContainer } from "#/base/components/container";
-export type { CreateContent } from "#/base/components/content";
-export type { CreateThumbX } from "#/base/components/thumb/x";
-export type { CreateThumbY } from "#/base/components/thumb/y";
-export type { CreateTrackX } from "#/base/components/track/x";
-export type { CreateTrackY } from "#/base/components/track/y";
+export type { CreateScrollbar } from "#/components";
+export type { CreateContainer } from "#/components/container";
+export type { CreateContent } from "#/components/content";
+export type { CreateThumbX } from "#/components/thumb/x";
+export type { CreateThumbY } from "#/components/thumb/y";
+export type { CreateTrackX } from "#/components/track/x";
+export type { CreateTrackY } from "#/components/track/y";
 
-export { createScrollbar } from "#/base";
+export { createScrollbar } from "#/components";
