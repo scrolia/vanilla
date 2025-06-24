@@ -1,0 +1,74 @@
+:root {
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    margin: 0;
+}
+
+.sla-nsb {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.sla {
+    &.sla-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .sla-content {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+    }
+
+    .sla-track {
+        position: fixed;
+        z-index: 1;
+
+        &.sla-child {
+            position: absolute;
+        }
+
+        &.sla-x {
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 12px;
+        }
+
+        &.sla-y {
+            top: 0;
+            right: 0;
+            width: 12px;
+            height: 100%;
+        }
+    }
+
+    .sla-thumb {
+        position: absolute;
+        background-color: #99999955;
+
+        &.sla-x {
+            height: 12px;
+        }
+
+        &.sla-y {
+            width: 12px;
+        }
+    }
+}

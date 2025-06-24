@@ -1,3 +1,29 @@
+## 0.6.0
+
+### Breaking Changes
+
+- Remove default styles
+- Remove `headless` option
+- Remove `setScrollbarLength` option (configurable via `onSetLength`)
+- Remove `activeTrackClassName`
+- Remove `activeThumbClassName`
+- Remove `x` object options
+- Remove `y` object options
+- Remove iife build
+
+### What's New
+
+- Headless by default
+- Add `onSetLength` function
+- Add `onScroll` function
+- Add `onDragStart` function
+- Add `onDragMove` function
+- Add `onDragEnd` function
+
+### What's Changed
+
+- Update `attach` function in `createScrollbar`
+
 ## 0.5.0 (2025-06-20)
 
 ### What's New

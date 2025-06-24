@@ -5,7 +5,6 @@ node_bin := "./node_modules/.bin/"
 biome := node_bin + "biome"
 tsc := node_bin + "tsc"
 tsup := node_bin + "tsup"
-sass := node_bin + "sass"
 typedoc := node_bin + "typedoc"
 vite := node_bin + "vite"
 
@@ -45,8 +44,6 @@ fmt:
 # Build package
 build:
     cd ./{{package}} && ../{{tsup}}
-    cd ./{{package}} && ../{{sass}} static/index.scss:dist/index.css
-    cd ./{{package}} && ../{{sass}} --no-source-map --style=compressed static/index.scss:dist/index.min.css
 
 # Generate APIs documentation
 api:

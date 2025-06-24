@@ -1,36 +1,28 @@
 import type { Signal } from "@preact/signals-core";
 import type { Format } from "ts-vista";
 
-import type {
-    CompleteOptionsBase,
-    IndividualOptionsBase,
-    SharedIndividualOptions,
-} from "#/@types/options";
+import type { CompleteOptions } from "#/@types/options";
 
-type CoreStatesOptions = Format<
-    SharedIndividualOptions & Partial<IndividualOptionsBase>
+/** Options for the `ScrollCore` context. */
+type ScrollCoreOptions = Format<
+    Pick<CompleteOptions, "disabled" | "page"> & Partial<CompleteOptions>
 >;
 
-type CoreStates = {
-    options: CoreStatesOptions;
+type ScrollCoreStates = {
     hvTrack: Signal<boolean>;
     hvThumb: Signal<boolean>;
-    timeout: Signal<number | null>;
     total: Signal<number>;
     view: Signal<number>;
     viewOffset: Signal<number>;
     scrollbarLength: Signal<number>;
     scrollbarOffset: Signal<number>;
-    isActive: Signal<boolean>;
 };
 
-type CoreOptions = CompleteOptionsBase;
-
-type Core = {
-    options: CoreOptions;
+type ScrollCore = {
+    options: ScrollCoreOptions;
     content: Signal<HTMLElement | null>;
-    x: CoreStates;
-    y: CoreStates;
+    x: ScrollCoreStates;
+    y: ScrollCoreStates;
 };
 
-export type { CoreStatesOptions, CoreStates, CoreOptions, Core };
+export type { ScrollCoreOptions, ScrollCoreStates, ScrollCore };

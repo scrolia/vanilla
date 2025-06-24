@@ -1,12 +1,12 @@
 {
     "name": "@scrolia/vanilla",
-    "version": "0.5.0",
-    "description": "A customizable scrollbar component",
+    "version": "0.6.0",
+    "description": "A headless scrollbar component",
     "keywords": [
         "scrolia",
         "scrollbar",
-        "component",
         "headless",
+        "component",
         "ts",
         "typescript",
         "js",
@@ -30,8 +30,6 @@
             "import": "./dist/index.mjs",
             "require": "./dist/index.js"
         },
-        "./css": "./dist/index.css",
-        "./dist/index.css": "./dist/index.css",
         "./package.json": "./package.json"
     },
     "main": "./dist/index.js",
