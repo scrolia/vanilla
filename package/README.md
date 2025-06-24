@@ -1,6 +1,6 @@
 # Scrolia Vanilla
 
-A customizable scrollbar component.
+A headless scrollbar component.
 
 ## License
 
