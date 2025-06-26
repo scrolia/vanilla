@@ -4,7 +4,7 @@ set windows-shell := ["powershell"]
 node_bin := "./node_modules/.bin/"
 biome := node_bin + "biome"
 tsc := node_bin + "tsc"
-tsup := node_bin + "tsup"
+tsdown := node_bin + "tsdown"
 typedoc := node_bin + "typedoc"
 vite := node_bin + "vite"
 
@@ -43,7 +43,7 @@ fmt:
 
 # Build package
 build:
-    cd ./{{package}} && ../{{tsup}}
+    cd ./{{package}} && ../{{tsdown}} -c ./tsdown.config.ts
 
 # Generate APIs documentation
 api:
