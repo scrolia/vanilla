@@ -1,12 +1,9 @@
 import type { Signal } from "@preact/signals-core";
-import type { Format } from "ts-vista";
 
 import type { CompleteOptions } from "#/@types/options";
 
 /** Options for the `ScrollCore` context. */
-type ScrollCoreOptions = Format<
-    Pick<CompleteOptions, "disabled" | "page"> & Partial<CompleteOptions>
->;
+type ScrollCoreOptions = CompleteOptions;
 
 type ScrollCoreStates = {
     hvTrack: Signal<boolean>;

@@ -1,12 +1,15 @@
-type PartialStyle<T> = {
-    [K in keyof T]: K extends "style" ? Partial<CSSStyleDeclaration> : T[K];
-};
+import type * as CSS from "csstype";
+import type { Omit, Partial } from "ts-vista";
 
-type HTMLAttributes<T extends keyof HTMLElementTagNameMap> = {
-    [K in keyof PartialStyle<HTMLElementTagNameMap[T]>]?: PartialStyle<
-        HTMLElementTagNameMap[T]
-    >[K];
-};
+/** CSS properties. */
+type CSSProperties = CSS.Properties<string | number>;
+
+/** Element properties. */
+type ElementProps<T extends keyof HTMLElementTagNameMap> = Partial<
+    Omit<HTMLElementTagNameMap[T], "style"> & {
+        style: CSSProperties;
+    }
+>;
 
 type CreateComponent = {
     /**
@@ -15,4 +18,4 @@ type CreateComponent = {
     attach: (el: HTMLElement) => () => void;
 };
 
-export type { PartialStyle, HTMLAttributes, CreateComponent };
+export type { CSSProperties, ElementProps, CreateComponent };

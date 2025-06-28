@@ -17,7 +17,7 @@ type CreateContainer = CreateComponent;
 /** Function to create the container. */
 const createContainer = (options: CreateContainerOptions): CreateContainer => {
     const {
-        options: { disabled, page, onSetLength, onScroll },
+        options: { disabled, page, plugins },
         content,
         x,
         y,
@@ -59,8 +59,10 @@ const createContainer = (options: CreateContainerOptions): CreateContainer => {
                     const scrollbarLengthNext: number =
                         (_view / _total) * _view;
 
-                    const result: OnSetLengthResult | undefined = onSetLength?.(
-                        {
+                    let result: OnSetLengthResult | undefined;
+
+                    for (const plugin of plugins) {
+                        result = plugin.onSetLength?.({
                             position: "x",
                             isDisabled: disabled,
                             isPage: page,
@@ -69,9 +71,10 @@ const createContainer = (options: CreateContainerOptions): CreateContainer => {
                             view: _view,
                             viewOffset: viewOffset.value,
                             scrollbarLengthPrev: scrollbarLength.value,
-                            scrollbarLengthNext,
-                        },
-                    );
+                            scrollbarLengthNext:
+                                result?.scrollbarLength ?? scrollbarLengthNext,
+                        });
+                    }
 
                     let length: number;
 
@@ -111,19 +114,22 @@ const createContainer = (options: CreateContainerOptions): CreateContainer => {
                     const scrollbarLengthNext: number =
                         (_view / _total) * _view;
 
-                    const result: OnSetLengthResult | undefined = onSetLength?.(
-                        {
+                    let result: OnSetLengthResult | undefined;
+
+                    for (const plugin of plugins) {
+                        result = plugin.onSetLength?.({
                             position: "y",
                             isDisabled: disabled,
                             isPage: page,
-                            isDefined: isDefinedY.value,
+                            isDefined: isDefinedX.value,
                             total: _total,
                             view: _view,
                             viewOffset: viewOffset.value,
                             scrollbarLengthPrev: scrollbarLength.value,
-                            scrollbarLengthNext,
-                        },
-                    );
+                            scrollbarLengthNext:
+                                result?.scrollbarLength ?? scrollbarLengthNext,
+                        });
+                    }
 
                     let length: number;
 
@@ -186,17 +192,22 @@ const createContainer = (options: CreateContainerOptions): CreateContainer => {
                     const scrollbarOffsetNext: number =
                         (viewOffset.value / total.value) * view.value;
 
-                    const result: OnScrollResult | undefined = onScroll?.({
-                        position: "x",
-                        isDisabled: disabled,
-                        isPage: page,
-                        isDefined: isDefinedX.value,
-                        total: total.value,
-                        view: view.value,
-                        viewOffset: viewOffset.value,
-                        scrollbarOffsetPrev: scrollbarOffset.value,
-                        scrollbarOffsetNext,
-                    });
+                    let result: OnScrollResult | undefined;
+
+                    for (const plugin of plugins) {
+                        result = plugin.onScroll?.({
+                            position: "x",
+                            isDisabled: disabled,
+                            isPage: page,
+                            isDefined: isDefinedX.value,
+                            total: total.value,
+                            view: view.value,
+                            viewOffset: viewOffset.value,
+                            scrollbarOffsetPrev: scrollbarOffset.value,
+                            scrollbarOffsetNext:
+                                result?.scrollbarOffset ?? scrollbarOffsetNext,
+                        });
+                    }
 
                     let offset: number;
 
@@ -221,17 +232,22 @@ const createContainer = (options: CreateContainerOptions): CreateContainer => {
                     const scrollbarOffsetNext: number =
                         (viewOffset.value / total.value) * view.value;
 
-                    const result: OnScrollResult | undefined = onScroll?.({
-                        position: "y",
-                        isDisabled: disabled,
-                        isPage: page,
-                        isDefined: isDefinedY.value,
-                        total: total.value,
-                        view: view.value,
-                        viewOffset: viewOffset.value,
-                        scrollbarOffsetPrev: scrollbarOffset.value,
-                        scrollbarOffsetNext,
-                    });
+                    let result: OnScrollResult | undefined;
+
+                    for (const plugin of plugins) {
+                        result = plugin.onScroll?.({
+                            position: "y",
+                            isDisabled: disabled,
+                            isPage: page,
+                            isDefined: isDefinedY.value,
+                            total: total.value,
+                            view: view.value,
+                            viewOffset: viewOffset.value,
+                            scrollbarOffsetPrev: scrollbarOffset.value,
+                            scrollbarOffsetNext:
+                                result?.scrollbarOffset ?? scrollbarOffsetNext,
+                        });
+                    }
 
                     let offset: number;
 

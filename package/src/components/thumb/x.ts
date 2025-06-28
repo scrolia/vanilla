@@ -20,7 +20,7 @@ type CreateThumbX = CreateComponent;
 /** Function to create horizontal thumb. */
 const createThumbX = (options: CreateThumbXOptions): CreateThumbX => {
     const {
-        options: { disabled, page, onDragStart, onDragMove, onDragEnd },
+        options: { disabled, page, plugins },
         content,
         x: {
             hvTrack,
@@ -53,16 +53,18 @@ const createThumbX = (options: CreateThumbXOptions): CreateThumbX => {
                     pointerOffset,
                 };
 
-                onDragStart?.({
-                    position: "x",
-                    isDisabled: disabled,
-                    isPage: page,
-                    isDefined,
-                    total: total.value,
-                    view: view.value,
-                    viewOffset: viewOffset.value,
-                    pointerOffset,
-                });
+                for (const plugin of plugins) {
+                    plugin.onDragStart?.({
+                        position: "x",
+                        isDisabled: disabled,
+                        isPage: page,
+                        isDefined,
+                        total: total.value,
+                        view: view.value,
+                        viewOffset: viewOffset.value,
+                        pointerOffset,
+                    });
+                }
 
                 const handlePointerMove = (e: PointerEvent): void => {
                     const _pointerOffset: number = e.clientX;
@@ -73,27 +75,34 @@ const createThumbX = (options: CreateThumbXOptions): CreateThumbX => {
                     const delta: number = e.clientX - startPos.pointerOffset;
                     const ratio: number = _view / _total;
 
-                    const result: OnDragMoveResult | undefined = onDragMove?.({
-                        position: "x",
-                        isDisabled: disabled,
-                        isPage: page,
-                        isDefined,
-                        total: _total,
-                        view: _view,
-                        viewOffset: viewOffset.value,
-                        pointerOffset: _pointerOffset,
-                        viewOffsetInit: startPos.viewOffset,
-                        pointerOffsetInit: startPos.pointerOffset,
-                        delta,
-                        ratio,
-                    });
+                    const scrollTo: number = startPos.viewOffset + delta / ratio;
+
+                    let result: OnDragMoveResult | undefined;
+
+                    for (const plugin of plugins) {
+                        result = plugin.onDragMove?.({
+                            position: "x",
+                            isDisabled: disabled,
+                            isPage: page,
+                            isDefined,
+                            total: _total,
+                            view: _view,
+                            viewOffset: viewOffset.value,
+                            pointerOffset: _pointerOffset,
+                            viewOffsetInit: startPos.viewOffset,
+                            pointerOffsetInit: startPos.pointerOffset,
+                            delta,
+                            ratio,
+                            scrollTo: result?.scrollTo ?? scrollTo,
+                        });
+                    }
 
                     let left: number;
 
                     if (result?.scrollTo) {
                         left = result.scrollTo;
                     } else {
-                        left = startPos.viewOffset + delta / ratio;
+                        left = scrollTo;
                     }
 
                     if (page) {
@@ -108,18 +117,20 @@ const createThumbX = (options: CreateThumbXOptions): CreateThumbX => {
                 };
 
                 const handlePointerUp = (e: PointerEvent): void => {
-                    onDragEnd?.({
-                        position: "x",
-                        isDisabled: disabled,
-                        isPage: page,
-                        isDefined,
-                        total: total.value,
-                        view: view.value,
-                        viewOffset: viewOffset.value,
-                        pointerOffset: e.clientX,
-                        viewOffsetInit: startPos.viewOffset,
-                        pointerOffsetInit: startPos.pointerOffset,
-                    });
+                    for (const plugin of plugins) {
+                        plugin.onDragEnd?.({
+                            position: "x",
+                            isDisabled: disabled,
+                            isPage: page,
+                            isDefined,
+                            total: total.value,
+                            view: view.value,
+                            viewOffset: viewOffset.value,
+                            pointerOffset: e.clientX,
+                            viewOffsetInit: startPos.viewOffset,
+                            pointerOffsetInit: startPos.pointerOffset,
+                        });
+                    }
 
                     window.removeEventListener(
                         "pointermove",

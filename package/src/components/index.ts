@@ -84,6 +84,7 @@ const createScrollbar = (options?: Options): CreateScrollbar => {
         ...options,
         disabled: options?.disabled ?? false,
         page: options?.page ?? false,
+        plugins: options?.plugins ?? [],
     };
 
     const core: ScrollCore = {
