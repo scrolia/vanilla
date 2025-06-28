@@ -75,7 +75,8 @@ const createThumbX = (options: CreateThumbXOptions): CreateThumbX => {
                     const delta: number = e.clientX - startPos.pointerOffset;
                     const ratio: number = _view / _total;
 
-                    const scrollTo: number = startPos.viewOffset + delta / ratio;
+                    const scrollTo: number =
+                        startPos.viewOffset + delta / ratio;
 
                     let result: OnDragMoveResult | undefined;
 

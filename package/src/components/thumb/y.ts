@@ -75,7 +75,8 @@ const createThumbY = (options: CreateThumbYOptions): CreateThumbY => {
                     const delta: number = e.clientY - startPos.pointerOffset;
                     const ratio: number = _view / _total;
 
-                    const scrollTo: number = startPos.viewOffset + delta / ratio;
+                    const scrollTo: number =
+                        startPos.viewOffset + delta / ratio;
 
                     let result: OnDragMoveResult | undefined;
 

@@ -11,7 +11,7 @@
     },
     "pnpm": {
         "overrides": {
-            "rolldown": "https://pkg.pr.new/rolldown@b342e85"
+            "rolldown": "1.0.0-beta.21"
         }
     }
 }
