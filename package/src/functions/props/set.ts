@@ -1,10 +1,12 @@
 import type { ComponentProps } from "#/@types/component";
 
+/** Set component props. */
 function setComponentProps(
     element: HTMLElement,
     props: ComponentProps<"div">,
 ): HTMLElement;
 
+/** Set component props. */
 function setComponentProps<T extends keyof HTMLElementTagNameMap>(
     element: HTMLElementTagNameMap[T],
     props: ComponentProps<T>,
