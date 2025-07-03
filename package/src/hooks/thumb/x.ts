@@ -122,5 +122,5 @@ const useThumbXHandler = () => {
 /** Result of the `useThumbXHandler` hook. */
 type ThumbXHandler = ReturnType<typeof useThumbXHandler>;
 
-export type { ThumbXHandler };
+export type { StartPos, ThumbXHandler };
 export { useThumbXHandler };
