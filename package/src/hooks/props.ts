@@ -12,6 +12,7 @@ import {
 } from "#/functions/props/get";
 import { setComponentProps } from "#/functions/props/set";
 
+/** Hook to set component props automatically. */
 const useComponentPropsSetter = (name: GetComponentPropsName): void => {
     const elRef: Required<Atom.Ref<DOM.AtomicoThis>> = Atom.useHost();
 

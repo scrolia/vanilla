@@ -3,6 +3,7 @@ import type { Plugin } from "#/@types/options";
 
 import { mergeClassNames } from "#/functions/classname";
 
+/** Component name. */
 type GetComponentPropsName =
     | "provider"
     | "container"
@@ -12,12 +13,14 @@ type GetComponentPropsName =
     | "thumbX"
     | "thumbY";
 
+/** Options for the `getComponentProps` function. */
 type GetComponentPropsOptions<P> = {
     name: GetComponentPropsName;
     props: P;
     plugins: Plugin[];
 };
 
+/** Get component props. */
 const getComponentProps = <P extends object>(
     options: GetComponentPropsOptions<P>,
 ): P => {

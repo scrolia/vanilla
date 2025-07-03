@@ -6,7 +6,7 @@ import * as Atom from "atomico";
 
 import { useScrollCore } from "#/contexts/scrollcore";
 import { useComponentPropsSetter } from "#/hooks/props";
-import { useThumbHandlerY } from "#/hooks/thumb/y";
+import { useThumbYHandler } from "#/hooks/thumb/y";
 
 const _ThumbY = () => {
     const elRef: Required<Atom.Ref<DOM.AtomicoThis>> = Atom.useHost();
@@ -19,7 +19,7 @@ const _ThumbY = () => {
         setHvThumb(true);
     });
 
-    const { onPointerDown } = useThumbHandlerY();
+    const { onPointerDown } = useThumbYHandler();
 
     Atom.useEffect((): (() => void) => {
         elRef.current.addEventListener("pointerdown", onPointerDown);

@@ -4,6 +4,7 @@ export default defineConfig({
     entry: {
         index: "./src/index.ts",
         init: "./src/init.ts",
+        internal: "./src/internal.ts",
     },
     dts: true,
     format: [
