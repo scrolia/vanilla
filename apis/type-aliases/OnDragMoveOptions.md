@@ -6,6 +6,6 @@
 type OnDragMoveOptions = Format<FunctionOptions & OnDragMoveBaseOptions>;
 ```
 
-Defined in: [package/src/@types/options.ts:89](https://github.com/scrolia/vanilla/blob/c47359c5a19f69d6a4fe4e7fb520642ec24545b4/package/src/@types/options.ts#L89)
+Defined in: [package/src/@types/options.ts:93](https://github.com/scrolia/vanilla/blob/09c160783f9b3be547e821e51618c289c7500171/package/src/@types/options.ts#L93)
 
 The options for the `onDragMove` function.

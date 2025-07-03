@@ -1,5 +1,7 @@
 import type { Format, Partial } from "ts-vista";
 
+import type { ComponentProps } from "#/@types/component";
+
 /** The position of the scrollbar. */
 type Position = "x" | "y";
 
@@ -83,6 +85,8 @@ type OnDragMoveBaseOptions = {
     delta: number;
     /** The ratio of the visible length to the total length. */
     ratio: number;
+    /** The offset to scroll to, aka the default value. */
+    scrollTo: number;
 };
 
 /** The options for the `onDragMove` function. */
@@ -112,6 +116,42 @@ type OnDragEndBaseOptions = {
 /** The options for the `onDragEnd` function. */
 type OnDragEndOptions = Format<FunctionOptions & OnDragEndBaseOptions>;
 
+/** The function to get previous props and return new props. */
+type PluginPropsFunction<T> = (prev: T) => T;
+
+type CompletePluginProps = {
+    provider: PluginPropsFunction<ComponentProps<"div">>;
+    container: PluginPropsFunction<ComponentProps<"div">>;
+    content: PluginPropsFunction<ComponentProps<"div">>;
+    trackX: PluginPropsFunction<ComponentProps<"div">>;
+    trackY: PluginPropsFunction<ComponentProps<"div">>;
+    thumbX: PluginPropsFunction<ComponentProps<"div">>;
+    thumbY: PluginPropsFunction<ComponentProps<"div">>;
+};
+
+/** Scrollbar plugin props. */
+type PluginProps = Format<Partial<CompletePluginProps>>;
+
+type CompletePlugin = {
+    /** The name of the plugin. */
+    name: string;
+    /** The props for the scrollbar components. */
+    props: PluginProps;
+    /** The function to be called when the length of the scrollbar is being set. */
+    onSetLength: (options: OnSetLengthOptions) => OnSetLengthResult | undefined;
+    /** The function to be called when the scrollbar is being scrolled. */
+    onScroll: (options: OnScrollOptions) => OnScrollResult | undefined;
+    /** The function to be called when the scrollbar is being dragged. */
+    onDragStart: (options: OnDragStartOptions) => void;
+    /** The function to be called when the scrollbar is dragged and move. */
+    onDragMove: (options: OnDragMoveOptions) => OnDragMoveResult | undefined;
+    /** The function to be called when the scrollbar is released. */
+    onDragEnd: (options: OnDragEndOptions) => void;
+};
+
+/** Scrollbar plugin. */
+type Plugin = Format<Partial<CompletePlugin>>;
+
 type CompleteOptions = {
     /**
      * Whether disable the scrollbar.
@@ -125,16 +165,12 @@ type CompleteOptions = {
      * By default, it is `false`.
      */
     page: boolean;
-    /** The function to be called when the length of the scrollbar is being set. */
-    onSetLength: (options: OnSetLengthOptions) => OnSetLengthResult | undefined;
-    /** The function to be called when the scrollbar is being scrolled. */
-    onScroll: (options: OnScrollOptions) => OnScrollResult | undefined;
-    /** The function to be called when the scrollbar is being dragged. */
-    onDragStart: (options: OnDragStartOptions) => void;
-    /** The function to be called when the scrollbar is dragged and move. */
-    onDragMove: (options: OnDragMoveOptions) => OnDragMoveResult | undefined;
-    /** The function to be called when the scrollbar is released. */
-    onDragEnd: (options: OnDragEndOptions) => void;
+    /**
+     * The plugins for the scrollbar.
+     *
+     * By default, it is `[]`.
+     */
+    plugins: Plugin[];
 };
 
 /** Scrollbar options. */
@@ -150,6 +186,9 @@ export type {
     OnDragMoveOptions,
     OnDragMoveResult,
     OnDragEndOptions,
+    PluginPropsFunction,
+    PluginProps,
+    Plugin,
     CompleteOptions,
     Options,
 };

@@ -1,28 +1,59 @@
 ## 0.6.0
 
+Reworked the implementation.
+
 ### Breaking Changes
 
 - Remove default styles
-- Remove `headless` option
-- Remove `setScrollbarLength` option (configurable via `onSetLength`)
-- Remove `activeTrackClassName`
-- Remove `activeThumbClassName`
-- Remove `x` object options
-- Remove `y` object options
+- Remove all previous options
 - Remove iife build
 
 ### What's New
 
+- Implemented as Web Component
 - Headless by default
-- Add `onSetLength` function
-- Add `onScroll` function
-- Add `onDragStart` function
-- Add `onDragMove` function
-- Add `onDragEnd` function
+- Provider component now accepts the following props:
+    - `disabled`
+    - `page`
+    - `plugins`
 
-### What's Changed
+### Migrating from 0.5.0 to 0.6.0
 
-- Update `attach` function in `createScrollbar`
+Update the JS code:
+
+```diff
+- import type { CreateScrollbar } from "@scrolia/vanilla";
+
+- import { createScrollbar } from "@scrolia/vanilla";
+
+- const container: HTMLElement | null = document.getElementById("container");
+
+- if (!container) throw new Error("Container not found");
+
+- const scrollbar: CreateScrollbar = createScrollbar();
+
+- const destroyScrollbar: () => void = scrollbar.attach(container);
+
+- window.addEventListener("unload", destroyScrollbar);
+
++ import "@scrolia/vanilla/init";
+```
+
+HTML setup:
+
+```html
+<scrollbar-provider>
+    <scrollbar-container>
+        <scrollbar-content><!-- Content --></scrollbar-content>
+        <scrollbar-track-x>
+            <scrollbar-thumb-x></scrollbar-thumb-x>
+        </scrollbar-track-x>
+        <scrollbar-track-y>
+            <scrollbar-thumb-y></scrollbar-thumb-y>
+        </scrollbar-track-y>
+    </scrollbar-container>
+</scrollbar-provider>
+```
 
 ## 0.5.0 (2025-06-20)
 

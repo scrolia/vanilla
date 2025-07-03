@@ -10,25 +10,17 @@ const createBlock = (): HTMLDivElement => {
     return el;
 };
 
-const setupScrollbar = (outer: HTMLDivElement, inner: HTMLDivElement): void => {
-    const el: HTMLDivElement = document.createElement("div");
-
-    el.appendChild(inner);
-
-    outer.appendChild(el);
-
-    attachScrollbar(el);
-};
-
 const subBlock: HTMLDivElement = document.createElement("div");
 subBlock.style.display = "block";
 subBlock.style.width = "600px";
 subBlock.style.height = "600px";
 subBlock.innerText = "Block";
 
-const block1: HTMLDivElement = createBlock();
+const block1: HTMLElement = createBlock();
 
-setupScrollbar(block1, subBlock);
+block1.appendChild(subBlock);
+
+attachScrollbar(block1);
 
 const subVBlock: HTMLDivElement = document.createElement("div");
 subVBlock.style.display = "block";
@@ -37,7 +29,9 @@ subVBlock.innerText = "Vertical Block";
 
 const block2: HTMLDivElement = createBlock();
 
-setupScrollbar(block2, subVBlock);
+block2.appendChild(subVBlock);
+
+attachScrollbar(block2);
 
 const subHBlock: HTMLDivElement = document.createElement("div");
 subHBlock.style.display = "block";
@@ -46,7 +40,9 @@ subHBlock.innerText = "Horizontal Block";
 
 const block3: HTMLDivElement = createBlock();
 
-setupScrollbar(block3, subHBlock);
+block3.appendChild(subHBlock);
+
+attachScrollbar(block3);
 
 const background: HTMLDivElement = document.createElement("div");
 background.style.display = "block";

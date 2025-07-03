@@ -27,26 +27,42 @@ bun add @scrolia/vanilla
 
 ## Usage
 
-A basic usage example:
+Define the components from the package:
 
 ```ts
-import type { CreateScrollbar } from "@scrolia/vanilla";
+import "@scrolia/vanilla/init";
+```
 
-import { createScrollbar } from "@scrolia/vanilla";
+Or define it manually:
 
-// Get element with id "container"
-const container: HTMLElement | null = document.getElementById("container");
+```ts
+// This is same as above
 
-if (!container) throw new Error("Container not found");
+import { Scrollbar as S } from "@scrolia/vanilla";
 
-// Create scrollbar
-const scrollbar: CreateScrollbar = createScrollbar();
+customElements.define("scrollbar-provider", S.Provider);
+customElements.define("scrollbar-container", S.Container);
+customElements.define("scrollbar-content", S.Content);
+customElements.define("scrollbar-track-x", S.TrackX);
+customElements.define("scrollbar-track-y", S.TrackY);
+customElements.define("scrollbar-thumb-x", S.ThumbX);
+customElements.define("scrollbar-thumb-y", S.ThumbY);
+```
 
-// Attach scrollbar to container
-const destroyScrollbar: () => void = scrollbar.attach(container);
+A basic usage example:
 
-// Destroy scrollbar on unload
-window.addEventListener("unload", destroyScrollbar);
+```html
+<scrollbar-provider>
+    <scrollbar-container>
+        <scrollbar-content><!-- Content --></scrollbar-content>
+        <scrollbar-track-x>
+            <scrollbar-thumb-x></scrollbar-thumb-x>
+        </scrollbar-track-x>
+        <scrollbar-track-y>
+            <scrollbar-thumb-y></scrollbar-thumb-y>
+        </scrollbar-track-y>
+    </scrollbar-container>
+</scrollbar-provider>
 ```
 
 Apply styles to the components using the preferred styling solution:
@@ -62,7 +78,13 @@ Apply styles to the components using the preferred styling solution:
 }
 
 .sla {
-    &.sla-container {
+    &.sla-provider {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .sla-container {
         position: relative;
         width: 100%;
         height: 100%;
@@ -113,63 +135,38 @@ Apply styles to the components using the preferred styling solution:
 }
 ```
 
-```ts
-import type { Options, CreateScrollbar } from "@scrolia/vanilla";
+HTML page setup:
 
-import { createScrollbar } from "@scrolia/vanilla";
+```html
+<scrollbar-provider page class="sla sla-provider">
+    <scrollbar-container class="sla-container">
+        <scrollbar-content class="sla-content">
+            <!-- Content -->
+        </scrollbar-content>
+        <scrollbar-track-x class="sla-track sla-x">
+            <scrollbar-thumb-x class="sla-thumb sla-x"></scrollbar-thumb-x>
+        </scrollbar-track-x>
+        <scrollbar-track-y class="sla-track sla-y">
+            <scrollbar-thumb-y class="sla-thumb sla-y"></scrollbar-thumb-y>
+        </scrollbar-track-y>
+    </scrollbar-container>
+</scrollbar-provider>
+```
 
-// Get element with id "container"
-const container: HTMLElement | null = document.getElementById("container");
+HTML component setup:
 
-if (!container) throw new Error("Container not found");
-
-type AttachScrollbarOptions = Pick<Options, "disabled" | "page">;
-
-// Wrap with a function to apply options
-const attachScrollbar = (
-    container: HTMLElement, 
-    options?: AttachScrollbarOptions
-): void => {
-    const { disabled, page } = options ?? {};
-
-    // Create scrollbar
-    const scrollbar: CreateScrollbar = createScrollbar({
-        disabled,
-        page
-    });
-
-    // Apply styles for each element
-    container.classList.add("sla", "sla-container");
-
-    const content: HTMLElement = document.createElement("div");
-    content.classList.add("sla-nsb", "sla-content");
-
-    const trackX: HTMLElement = document.createElement("div");
-    trackX.classList.add("sla-track", "sla-x");
-    !page && trackX.classList.add("sla-child");
-
-    const trackY: HTMLElement = document.createElement("div");
-    trackY.classList.add("sla-track", "sla-y");
-    !page && trackY.classList.add("sla-child");
-
-    const thumbX: HTMLElement = document.createElement("div");
-    thumbX.classList.add("sla-thumb", "sla-x");
-
-    const thumbY: HTMLElement = document.createElement("div");
-    thumbY.classList.add("sla-thumb", "sla-y");
-
-    // Attach scrollbar to container
-    const destroyScrollbar: () => void = scrollbar.attach(container, {
-        content,
-        trackX,
-        trackY,
-        thumbX,
-        thumbY,
-    });
-
-    // Destroy scrollbar on unload
-    window.addEventListener("unload", destroyScrollbar);
-};
-
-attachScrollbar(container);
+```html
+<scrollbar-provider class="sla sla-provider">
+    <scrollbar-container class="sla-container">
+        <scrollbar-content class="sla-content">
+            <!-- Content -->
+        </scrollbar-content>
+        <scrollbar-track-x class="sla-track sla-child sla-x">
+            <scrollbar-thumb-x class="sla-thumb sla-x"></scrollbar-thumb-x>
+        </scrollbar-track-x>
+        <scrollbar-track-y class="sla-track sla-child sla-y">
+            <scrollbar-thumb-y class="sla-thumb sla-y"></scrollbar-thumb-y>
+        </scrollbar-track-y>
+    </scrollbar-container>
+</scrollbar-provider>
 ```

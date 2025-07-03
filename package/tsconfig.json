@@ -1,6 +1,8 @@
 {
     "extends": "../tsconfig.base.json",
     "compilerOptions": {
+        "jsx": "react-jsx",
+        "jsxImportSource": "atomico",
         "baseUrl": ".",
         "paths": {
             "#/*": [

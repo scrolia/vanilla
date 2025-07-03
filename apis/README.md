@@ -6,13 +6,10 @@
 
 | Type Alias | Description |
 | ------ | ------ |
-| [CreateContainer](type-aliases/CreateContainer.md) | Result of the `createContainer` function. |
-| [CreateContent](type-aliases/CreateContent.md) | Result of the `createContainer` function. |
-| [CreateScrollbar](type-aliases/CreateScrollbar.md) | Result of the `createScrollbar` function. |
-| [CreateThumbX](type-aliases/CreateThumbX.md) | Result of the `createThumbX` function. |
-| [CreateThumbY](type-aliases/CreateThumbY.md) | Result of the `createThumbY` function. |
-| [CreateTrackX](type-aliases/CreateTrackX.md) | Result of the `createTrackX` function. |
-| [CreateTrackY](type-aliases/CreateTrackY.md) | Result of the `createTracky` function. |
+| [ComponentProps](type-aliases/ComponentProps.md) | Component properties. |
+| [ContainerElement](type-aliases/ContainerElement.md) | Scrollbar container type. |
+| [ContentElement](type-aliases/ContentElement.md) | Scrollbar content type. |
+| [CSSProperties](type-aliases/CSSProperties.md) | CSS properties. |
 | [OnDragEndOptions](type-aliases/OnDragEndOptions.md) | The options for the `onDragEnd` function. |
 | [OnDragMoveOptions](type-aliases/OnDragMoveOptions.md) | The options for the `onDragMove` function. |
 | [OnDragMoveResult](type-aliases/OnDragMoveResult.md) | The result for the `onDragMove` function. |
@@ -22,10 +19,18 @@
 | [OnSetLengthOptions](type-aliases/OnSetLengthOptions.md) | The options for the `onSetLength` function. |
 | [OnSetLengthResult](type-aliases/OnSetLengthResult.md) | The result for the `onSetLength` function. |
 | [Options](type-aliases/Options.md) | Scrollbar options. |
+| [Plugin](type-aliases/Plugin.md) | Scrollbar plugin. |
+| [PluginProps](type-aliases/PluginProps.md) | Scrollbar plugin props. |
+| [PluginPropsFunction](type-aliases/PluginPropsFunction.md) | The function to get previous props and return new props. |
 | [Position](type-aliases/Position.md) | The position of the scrollbar. |
+| [ProviderElement](type-aliases/ProviderElement.md) | Scrollbar provider type. |
+| [ThumbXElement](type-aliases/ThumbXElement.md) | Scrollbar thumb X type. |
+| [ThumbYElement](type-aliases/ThumbYElement.md) | Scrollbar thumb Y type. |
+| [TrackXElement](type-aliases/TrackXElement.md) | Scrollbar track X type. |
+| [TrackYElement](type-aliases/TrackYElement.md) | Scrollbar track Y type. |
 
-## Functions
+## Variables
 
-| Function | Description |
+| Variable | Description |
 | ------ | ------ |
-| [createScrollbar](functions/createScrollbar.md) | Function to create the scrollbar. |
+| [Scrollbar](variables/Scrollbar.md) | Scrollbar components. |
