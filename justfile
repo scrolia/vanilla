@@ -8,9 +8,9 @@ tsdown := node_bin + "tsdown"
 typedoc := node_bin + "typedoc"
 vite := node_bin + "vite"
 
-package := "./package"
+package := "package"
 
-example := "./examples/common"
+example := "example"
 
 # Default action
 _:
@@ -44,6 +44,8 @@ fmt:
 # Build package
 build:
     cd ./{{package}} && ../{{tsdown}} -c ./tsdown.config.ts
+    rm ./{{package}}/dist/*.d.mts
+    rm ./{{package}}/dist/init.d.ts
 
 # Generate APIs documentation
 api:
@@ -51,7 +53,7 @@ api:
 
 # Start the server in `common` example
 example:
-    cd ./{{example}} && ../../{{vite}}
+    cd ./{{example}} && ./{{vite}}
 
 # Clean builds
 clean:

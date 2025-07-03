@@ -6,6 +6,6 @@
 type OnScrollOptions = Format<FunctionOptions & OnScrollBaseOptions>;
 ```
 
-Defined in: [package/src/@types/options.ts:53](https://github.com/scrolia/vanilla/blob/c47359c5a19f69d6a4fe4e7fb520642ec24545b4/package/src/@types/options.ts#L53)
+Defined in: [package/src/@types/options.ts:55](https://github.com/scrolia/vanilla/blob/09c160783f9b3be547e821e51618c289c7500171/package/src/@types/options.ts#L55)
 
 The options for the `onScroll` function.

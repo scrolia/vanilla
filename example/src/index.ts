@@ -1,3 +1,5 @@
+import "@scrolia/vanilla/init";
+
 import { app } from "#/app";
 
 const root: HTMLElement | null = document.getElementById("root");

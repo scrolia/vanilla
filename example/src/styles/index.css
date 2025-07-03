@@ -23,14 +23,23 @@ body {
 }
 
 .sla {
-    &.sla-container {
+    &.sla-provider {
         position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    .sla-container {
+        position: relative;
+        display: block;
         width: 100%;
         height: 100%;
     }
 
     .sla-content {
         position: relative;
+        display: block;
         width: 100%;
         height: 100%;
         overflow: auto;

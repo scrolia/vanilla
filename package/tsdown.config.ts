@@ -1,12 +1,15 @@
-import type { Options } from "tsdown";
-
 import { defineConfig } from "tsdown";
 
-const options: Options = {
+export default defineConfig({
     entry: {
         index: "./src/index.ts",
+        init: "./src/init.ts",
     },
-    dts: false,
+    dts: true,
+    format: [
+        "esm",
+        "cjs",
+    ],
     outDir: "./dist",
     clean: true,
     platform: "browser",
@@ -20,16 +23,4 @@ const options: Options = {
             attachDebugInfo: "none",
         },
     },
-};
-
-export default defineConfig([
-    {
-        ...options,
-        format: "esm",
-    },
-    {
-        ...options,
-        dts: true,
-        format: "cjs",
-    },
-]);
+});

@@ -1,45 +1,73 @@
-import type { CreateScrollbar, Options } from "@scrolia/vanilla";
-
-import { createScrollbar } from "@scrolia/vanilla";
+import type {
+    ContainerElement,
+    ContentElement,
+    Options,
+    ProviderElement,
+    ThumbXElement,
+    ThumbYElement,
+    TrackXElement,
+    TrackYElement,
+} from "@scrolia/vanilla";
 
 type AttachScrollbarOptions = Pick<Options, "disabled" | "page">;
 
 const attachScrollbar = (el: HTMLElement, options?: AttachScrollbarOptions) => {
     const { disabled, page } = options ?? {};
 
-    const scrollbar: CreateScrollbar = createScrollbar({
-        disabled,
-        page,
-    });
+    const provider: ProviderElement = document.createElement(
+        "scrollbar-provider",
+    ) as ProviderElement;
+    provider.classList.add("sla", "sla-provider");
 
-    el.classList.add("sla", "sla-container");
+    if (disabled) provider.disabled = disabled;
+    if (page) provider.page = page;
 
-    const content: HTMLElement = document.createElement("div");
+    const container: ContainerElement = document.createElement(
+        "scrollbar-container",
+    ) as ContainerElement;
+    container.classList.add("sla-container");
+
+    const content: ContentElement = document.createElement(
+        "scrollbar-content",
+    ) as ContentElement;
     content.classList.add("sla-nsb", "sla-content");
 
-    const trackX: HTMLElement = document.createElement("div");
+    const trackX: TrackXElement = document.createElement(
+        "scrollbar-track-x",
+    ) as TrackXElement;
     trackX.classList.add("sla-track", "sla-x");
     !page && trackX.classList.add("sla-child");
 
-    const trackY: HTMLElement = document.createElement("div");
+    const trackY: TrackYElement = document.createElement(
+        "scrollbar-track-y",
+    ) as TrackYElement;
     trackY.classList.add("sla-track", "sla-y");
     !page && trackY.classList.add("sla-child");
 
-    const thumbX: HTMLElement = document.createElement("div");
+    const thumbX: ThumbXElement = document.createElement(
+        "scrollbar-thumb-x",
+    ) as ThumbXElement;
     thumbX.classList.add("sla-thumb", "sla-x");
 
-    const thumbY: HTMLElement = document.createElement("div");
+    const thumbY: ThumbYElement = document.createElement(
+        "scrollbar-thumb-y",
+    ) as ThumbYElement;
     thumbY.classList.add("sla-thumb", "sla-y");
 
-    const destroyScrollbar: () => void = scrollbar.attach(el, {
-        content,
-        trackX,
-        trackY,
-        thumbX,
-        thumbY,
-    });
+    const fragment: DocumentFragment = document.createDocumentFragment();
+    while (el.firstChild) fragment.appendChild(el.firstChild);
+    content.appendChild(fragment);
 
-    window.addEventListener("unload", destroyScrollbar);
+    trackX.appendChild(thumbX);
+    trackY.appendChild(thumbY);
+
+    container.appendChild(content);
+    container.appendChild(trackX);
+    container.appendChild(trackY);
+
+    provider.appendChild(container);
+
+    el.appendChild(provider);
 };
 
 export type { AttachScrollbarOptions };
