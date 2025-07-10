@@ -1,6 +1,7 @@
 import type { OnDragMoveResult } from "#/@types/options";
 
 import { useScrollCore } from "#/contexts/scrollcore";
+import { tryPlugin } from "#/functions/plugin";
 
 type StartPos = {
     viewOffset: number;
@@ -26,7 +27,9 @@ const useThumbXHandler = () => {
         };
 
         for (const plugin of plugins) {
-            plugin.onDragStart?.({
+            if (!plugin.onDragStart) continue;
+
+            tryPlugin(plugin, plugin.onDragStart, {
                 position: "x",
                 isDisabled: disabled,
                 isPage: page,
@@ -52,21 +55,24 @@ const useThumbXHandler = () => {
             let result: OnDragMoveResult | undefined;
 
             for (const plugin of plugins) {
-                result = plugin.onDragMove?.({
-                    position: "x",
-                    isDisabled: disabled,
-                    isPage: page,
-                    isDefined: hvTrack && hvThumb,
-                    total: _total,
-                    view: _view,
-                    viewOffset: viewOffset.current,
-                    pointerOffset: _pointerOffset,
-                    viewOffsetInit: startPos.viewOffset,
-                    pointerOffsetInit: startPos.pointerOffset,
-                    delta,
-                    ratio,
-                    scrollTo: result?.scrollTo ?? scrollTo,
-                });
+                if (!plugin.onDragMove) continue;
+
+                result =
+                    tryPlugin(plugin, plugin.onDragMove, {
+                        position: "x",
+                        isDisabled: disabled,
+                        isPage: page,
+                        isDefined: hvTrack && hvThumb,
+                        total: _total,
+                        view: _view,
+                        viewOffset: viewOffset.current,
+                        pointerOffset: _pointerOffset,
+                        viewOffsetInit: startPos.viewOffset,
+                        pointerOffsetInit: startPos.pointerOffset,
+                        delta,
+                        ratio,
+                        scrollTo: result?.scrollTo ?? scrollTo,
+                    }) ?? result;
             }
 
             let left: number;
@@ -92,7 +98,9 @@ const useThumbXHandler = () => {
 
         const handlePointerUp = (e: PointerEvent): void => {
             for (const plugin of plugins) {
-                plugin.onDragEnd?.({
+                if (!plugin.onDragEnd) continue;
+
+                tryPlugin(plugin, plugin.onDragEnd, {
                     position: "x",
                     isDisabled: disabled,
                     isPage: page,

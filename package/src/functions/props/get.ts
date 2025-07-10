@@ -2,6 +2,7 @@ import type { ComponentProps } from "#/@types/component";
 import type { Plugin } from "#/@types/options";
 
 import { mergeClassNames } from "#/functions/classname";
+import { tryPlugin } from "#/functions/plugin";
 
 /** Component name. */
 type GetComponentPropsName =
@@ -34,7 +35,11 @@ const getComponentProps = <P extends object>(
     for (const plugin of plugins) {
         if (!plugin.props?.[name]) continue;
 
-        const newResult: ComponentProps<"div"> = plugin.props[name](result);
+        const newResult: ComponentProps<"div"> = tryPlugin(
+            plugin,
+            plugin.props[name],
+            result,
+        );
 
         result = {
             ...result,
