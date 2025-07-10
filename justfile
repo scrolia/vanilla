@@ -44,8 +44,6 @@ fmt:
 # Build package
 build:
     cd ./{{package}} && ../{{tsdown}} -c ./tsdown.config.ts
-    rm ./{{package}}/dist/*.d.mts
-    rm ./{{package}}/dist/init.d.ts
 
 # Generate APIs documentation
 api:
