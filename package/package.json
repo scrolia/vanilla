@@ -31,13 +31,49 @@
             "require": "./dist/index.js"
         },
         "./init": {
+            "types": "./dist/init.d.ts",
             "import": "./dist/init.mjs",
             "require": "./dist/init.js"
         },
-        "./internal": {
-            "types": "./dist/internal.d.ts",
-            "import": "./dist/internal.mjs",
-            "require": "./dist/internal.js"
+        "./contexts/scrollcore": {
+            "types": "./dist/contexts/scrollcore.d.ts",
+            "import": "./dist/contexts/scrollcore.mjs",
+            "require": "./dist/contexts/scrollcore.js"
+        },
+        "./functions/props/get": {
+            "types": "./dist/functions/props/get.d.ts",
+            "import": "./dist/functions/props/get.mjs",
+            "require": "./dist/functions/props/get.js"
+        },
+        "./functions/props/set": {
+            "types": "./dist/functions/props/get.d.ts",
+            "import": "./dist/functions/props/set.mjs",
+            "require": "./dist/functions/props/set.js"
+        },
+        "./hooks/length": {
+            "types": "./dist/hooks/length.d.ts",
+            "import": "./dist/hooks/length.mjs",
+            "require": "./dist/hooks/length.js"
+        },
+        "./hooks/props": {
+            "types": "./dist/hooks/props.d.ts",
+            "import": "./dist/hooks/props.mjs",
+            "require": "./dist/hooks/props.js"
+        },
+        "./hooks/scroll": {
+            "types": "./dist/hooks/scroll.d.ts",
+            "import": "./dist/hooks/scroll.mjs",
+            "require": "./dist/hooks/scroll.js"
+        },
+        "./hooks/thumb/x": {
+            "types": "./dist/hooks/thumb/x.d.ts",
+            "import": "./dist/hooks/thumb/x.mjs",
+            "require": "./dist/hooks/thumb/x.js"
+        },
+        "./hooks/thumb/y": {
+            "types": "./dist/hooks/thumb/y.d.ts",
+            "import": "./dist/hooks/thumb/y.mjs",
+            "require": "./dist/hooks/thumb/y.js"
         },
         "./package.json": "./package.json"
     },
