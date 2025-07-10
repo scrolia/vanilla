@@ -2,6 +2,7 @@ import type { OnDragMoveResult } from "#/@types/options";
 import type { StartPos } from "#/hooks/thumb/x";
 
 import { useScrollCore } from "#/contexts/scrollcore";
+import { tryPlugin } from "#/functions/plugin";
 
 /** Hook for thumb logic. */
 const useThumbYHandler = () => {
@@ -22,7 +23,9 @@ const useThumbYHandler = () => {
         };
 
         for (const plugin of plugins) {
-            plugin.onDragStart?.({
+            if (!plugin.onDragStart) continue;
+
+            tryPlugin(plugin, plugin.onDragStart, {
                 position: "y",
                 isDisabled: disabled,
                 isPage: page,
@@ -48,21 +51,24 @@ const useThumbYHandler = () => {
             let result: OnDragMoveResult | undefined;
 
             for (const plugin of plugins) {
-                result = plugin.onDragMove?.({
-                    position: "y",
-                    isDisabled: disabled,
-                    isPage: page,
-                    isDefined: hvTrack && hvThumb,
-                    total: _total,
-                    view: _view,
-                    viewOffset: viewOffset.current,
-                    pointerOffset: _pointerOffset,
-                    viewOffsetInit: startPos.viewOffset,
-                    pointerOffsetInit: startPos.pointerOffset,
-                    delta,
-                    ratio,
-                    scrollTo: result?.scrollTo ?? scrollTo,
-                });
+                if (!plugin.onDragMove) continue;
+
+                result =
+                    tryPlugin(plugin, plugin.onDragMove, {
+                        position: "y",
+                        isDisabled: disabled,
+                        isPage: page,
+                        isDefined: hvTrack && hvThumb,
+                        total: _total,
+                        view: _view,
+                        viewOffset: viewOffset.current,
+                        pointerOffset: _pointerOffset,
+                        viewOffsetInit: startPos.viewOffset,
+                        pointerOffsetInit: startPos.pointerOffset,
+                        delta,
+                        ratio,
+                        scrollTo: result?.scrollTo ?? scrollTo,
+                    }) ?? result;
             }
 
             let top: number;
@@ -88,7 +94,9 @@ const useThumbYHandler = () => {
 
         const handlePointerUp = (e: PointerEvent): void => {
             for (const plugin of plugins) {
-                plugin.onDragEnd?.({
+                if (!plugin.onDragEnd) continue;
+
+                tryPlugin(plugin, plugin.onDragEnd, {
                     position: "y",
                     isDisabled: disabled,
                     isPage: page,

@@ -3,6 +3,7 @@ import type { OnScrollResult } from "#/@types/options";
 import * as Atom from "atomico";
 
 import { useScrollCore } from "#/contexts/scrollcore";
+import { tryPlugin } from "#/functions/plugin";
 
 /** Hook for handling scroll events. */
 const useScrollHandler = (): void => {
@@ -31,18 +32,21 @@ const useScrollHandler = (): void => {
                 let result: OnScrollResult | undefined;
 
                 for (const plugin of plugins) {
-                    result = plugin.onScroll?.({
-                        position: "x",
-                        isDisabled: disabled,
-                        isPage: page,
-                        isDefined: isDefinedX,
-                        total: x.total.current,
-                        view: x.view.current,
-                        viewOffset: x.viewOffset.current,
-                        scrollbarOffsetPrev: x.scrollbarOffset,
-                        scrollbarOffsetNext:
-                            result?.scrollbarOffset ?? scrollbarOffsetNext,
-                    });
+                    if (!plugin.onScroll) continue;
+
+                    result =
+                        tryPlugin(plugin, plugin.onScroll, {
+                            position: "x",
+                            isDisabled: disabled,
+                            isPage: page,
+                            isDefined: isDefinedX,
+                            total: x.total.current,
+                            view: x.view.current,
+                            viewOffset: x.viewOffset.current,
+                            scrollbarOffsetPrev: x.scrollbarOffset,
+                            scrollbarOffsetNext:
+                                result?.scrollbarOffset ?? scrollbarOffsetNext,
+                        }) ?? result;
                 }
 
                 let offset: number;
@@ -69,18 +73,21 @@ const useScrollHandler = (): void => {
                 let result: OnScrollResult | undefined;
 
                 for (const plugin of plugins) {
-                    result = plugin.onScroll?.({
-                        position: "y",
-                        isDisabled: disabled,
-                        isPage: page,
-                        isDefined: isDefinedY,
-                        total: y.total.current,
-                        view: y.view.current,
-                        viewOffset: y.viewOffset.current,
-                        scrollbarOffsetPrev: y.scrollbarOffset,
-                        scrollbarOffsetNext:
-                            result?.scrollbarOffset ?? scrollbarOffsetNext,
-                    });
+                    if (!plugin.onScroll) continue;
+
+                    result =
+                        tryPlugin(plugin, plugin.onScroll, {
+                            position: "y",
+                            isDisabled: disabled,
+                            isPage: page,
+                            isDefined: isDefinedY,
+                            total: y.total.current,
+                            view: y.view.current,
+                            viewOffset: y.viewOffset.current,
+                            scrollbarOffsetPrev: y.scrollbarOffset,
+                            scrollbarOffsetNext:
+                                result?.scrollbarOffset ?? scrollbarOffsetNext,
+                        }) ?? result;
                 }
 
                 let offset: number;

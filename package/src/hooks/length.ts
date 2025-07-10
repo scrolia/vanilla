@@ -3,6 +3,7 @@ import type { OnSetLengthResult } from "#/@types/options";
 import * as Atom from "atomico";
 
 import { useScrollCore } from "#/contexts/scrollcore";
+import { tryPlugin } from "#/functions/plugin";
 
 /** Hook for setting the length of the scrollbar. */
 const useLengthHandler = (): void => {
@@ -41,18 +42,21 @@ const useLengthHandler = (): void => {
                 let result: OnSetLengthResult | undefined;
 
                 for (const plugin of plugins) {
-                    result = plugin.onSetLength?.({
-                        position: "x",
-                        isDisabled: disabled,
-                        isPage: page,
-                        isDefined: isDefinedX,
-                        total,
-                        view,
-                        viewOffset: x.viewOffset.current,
-                        scrollbarLengthPrev: x.scrollbarLength,
-                        scrollbarLengthNext:
-                            result?.scrollbarLength ?? scrollbarLengthNext,
-                    });
+                    if (!plugin.onSetLength) continue;
+
+                    result =
+                        tryPlugin(plugin, plugin.onSetLength, {
+                            position: "x",
+                            isDisabled: disabled,
+                            isPage: page,
+                            isDefined: isDefinedX,
+                            total,
+                            view,
+                            viewOffset: x.viewOffset.current,
+                            scrollbarLengthPrev: x.scrollbarLength,
+                            scrollbarLengthNext:
+                                result?.scrollbarLength ?? scrollbarLengthNext,
+                        }) ?? result;
                 }
 
                 let length: number;
@@ -93,18 +97,21 @@ const useLengthHandler = (): void => {
                 let result: OnSetLengthResult | undefined;
 
                 for (const plugin of plugins) {
-                    result = plugin.onSetLength?.({
-                        position: "y",
-                        isDisabled: disabled,
-                        isPage: page,
-                        isDefined: isDefinedY,
-                        total,
-                        view,
-                        viewOffset: y.viewOffset.current,
-                        scrollbarLengthPrev: y.scrollbarLength,
-                        scrollbarLengthNext:
-                            result?.scrollbarLength ?? scrollbarLengthNext,
-                    });
+                    if (!plugin.onSetLength) continue;
+
+                    result =
+                        tryPlugin(plugin, plugin.onSetLength, {
+                            position: "y",
+                            isDisabled: disabled,
+                            isPage: page,
+                            isDefined: isDefinedY,
+                            total,
+                            view,
+                            viewOffset: y.viewOffset.current,
+                            scrollbarLengthPrev: y.scrollbarLength,
+                            scrollbarLengthNext:
+                                result?.scrollbarLength ?? scrollbarLengthNext,
+                        }) ?? result;
                 }
 
                 let length: number;
