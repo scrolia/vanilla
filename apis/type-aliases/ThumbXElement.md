@@ -6,6 +6,6 @@
 type ThumbXElement = ComponentTypes<typeof _ThumbX>;
 ```
 
-Defined in: [package/src/components/thumb/x.tsx:60](https://github.com/scrolia/vanilla/blob/d5b9981d7613b9946bfacdcfeac4dfdbcb0dbf18/package/src/components/thumb/x.tsx#L60)
+Defined in: [package/src/components/thumb/x.tsx:60](https://github.com/scrolia/vanilla/blob/c815e216f987f48e097bcb0896f128fe43b9f55a/package/src/components/thumb/x.tsx#L60)
 
 Scrollbar thumb X type.
