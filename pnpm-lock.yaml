@@ -40,11 +40,11 @@ importers:
         version: link:../package
     devDependencies:
       vite:
-        specifier: ^7.0.3
-        version: 7.0.3(jiti@2.4.2)(yaml@2.8.0)
+        specifier: ^7.0.4
+        version: 7.0.4(jiti@2.4.2)(yaml@2.8.0)
       vite-tsconfig-paths:
         specifier: ^5.1.4
-        version: 5.1.4(typescript@5.8.3)(vite@7.0.3(jiti@2.4.2)(yaml@2.8.0))
+        version: 5.1.4(typescript@5.8.3)(vite@7.0.4(jiti@2.4.2)(yaml@2.8.0))
 
   package:
     dependencies:
@@ -807,8 +807,8 @@ packages:
       vite:
         optional: true
 
-  vite@7.0.3:
-    resolution: {integrity: sha512-y2L5oJZF7bj4c0jgGYgBNSdIu+5HF+m68rn2cQXFbGoShdhV1phX9rbnxy9YXj82aS8MMsCLAAFkRxZeWdldrQ==}
+  vite@7.0.4:
+    resolution: {integrity: sha512-SkaSguuS7nnmV7mfJ8l81JGBFV7Gvzp8IzgE8A8t23+AxuNX61Q5H1Tpz5efduSN7NHC8nQXD3sKQKZAu5mNEA==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
     peerDependencies:
@@ -1449,18 +1449,18 @@ snapshots:
       jiti: 2.4.2
       quansync: 0.2.10
 
-  vite-tsconfig-paths@5.1.4(typescript@5.8.3)(vite@7.0.3(jiti@2.4.2)(yaml@2.8.0)):
+  vite-tsconfig-paths@5.1.4(typescript@5.8.3)(vite@7.0.4(jiti@2.4.2)(yaml@2.8.0)):
     dependencies:
       debug: 4.4.1
       globrex: 0.1.2
       tsconfck: 3.1.6(typescript@5.8.3)
     optionalDependencies:
-      vite: 7.0.3(jiti@2.4.2)(yaml@2.8.0)
+      vite: 7.0.4(jiti@2.4.2)(yaml@2.8.0)
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  vite@7.0.3(jiti@2.4.2)(yaml@2.8.0):
+  vite@7.0.4(jiti@2.4.2)(yaml@2.8.0):
     dependencies:
       esbuild: 0.25.6
       fdir: 6.4.6(picomatch@4.0.2)
