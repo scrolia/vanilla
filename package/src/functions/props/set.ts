@@ -23,19 +23,21 @@ function setComponentProps<T extends keyof HTMLElementTagNameMap>(
 
         // style object
         if (key === "style" && typeof value === "object") {
-            Object.assign(element.style, value);
+            for (const [k, v] of Object.entries(value))
+                element.style.setProperty(k, String(v));
             continue;
         }
 
         // boolean
         if (typeof value === "boolean") {
-            if (value) element.setAttribute(key as string, "");
+            if (value) element.setAttribute(key, "");
+            else element.removeAttribute(key);
             continue;
         }
 
         // known properties
         if (key in element) {
-            (element as any)[key] = value;
+            (element as unknown as Record<string, unknown>)[key] = value;
             continue;
         }
 
