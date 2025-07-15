@@ -5,7 +5,7 @@ import * as Atom from "atomico";
 import { useScrollCore } from "#/contexts/scrollcore";
 import { useComponentPropsSetter } from "#/hooks/props";
 
-const _Content = () => {
+const _Content = (): Atom.Host<any> => {
     const { contentRef } = useScrollCore();
 
     useComponentPropsSetter("content");

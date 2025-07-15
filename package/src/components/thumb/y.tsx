@@ -8,7 +8,7 @@ import { useScrollCore } from "#/contexts/scrollcore";
 import { useComponentPropsSetter } from "#/hooks/props";
 import { useThumbYHandler } from "#/hooks/thumb/y";
 
-const _ThumbY = () => {
+const _ThumbY = (): Atom.Host<any> => {
     const elRef: Required<Atom.Ref<DOM.AtomicoThis>> = Atom.useHost();
 
     const {

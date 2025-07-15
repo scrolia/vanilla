@@ -5,7 +5,7 @@ import * as Atom from "atomico";
 import { useScrollCore } from "#/contexts/scrollcore";
 import { useComponentPropsSetter } from "#/hooks/props";
 
-const _TrackY = () => {
+const _TrackY = (): Atom.Host<any> => {
     const {
         y: { setHvTrack },
     } = useScrollCore();
