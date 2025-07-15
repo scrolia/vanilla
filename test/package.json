@@ -1,0 +1,16 @@
+{
+    "name": "test-scrolia-vanilla",
+    "private": true,
+    "scripts": {
+        "test": "vitest run"
+    },
+    "dependencies": {
+        "@scrolia/vanilla": "workspace:*",
+        "@testing-library/dom": "^10.4.0",
+        "vitest": "^3.2.4"
+    },
+    "devDependencies": {
+        "jsdom": "^26.1.0",
+        "vite-tsconfig-paths": "^5.1.4"
+    }
+}

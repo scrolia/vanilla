@@ -12,6 +12,7 @@ const _ThumbY = () => {
     const elRef: Required<Atom.Ref<DOM.AtomicoThis>> = Atom.useHost();
 
     const {
+        options: { disabled },
         y: { setHvThumb, scrollbarLength, scrollbarOffset },
     } = useScrollCore();
 
@@ -34,6 +35,8 @@ const _ThumbY = () => {
     useComponentPropsSetter("thumbY");
 
     Atom.useEffect((): void => {
+        if (disabled) return void 0;
+
         const length: number = Number.isNaN(scrollbarLength)
             ? 0
             : scrollbarLength;
@@ -45,6 +48,7 @@ const _ThumbY = () => {
         elRef.current.style.height = `${length}px`;
         elRef.current.style.top = `${offset}px`;
     }, [
+        disabled,
         scrollbarLength,
         scrollbarOffset,
     ]);
