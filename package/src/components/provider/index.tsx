@@ -1,4 +1,5 @@
 import type * as DOM from "atomico/types/dom";
+import type * as Schema from "atomico/types/schema";
 
 import type { ComponentProps, ComponentTypes } from "#/@types/component";
 import type { Plugin } from "#/@types/options";
@@ -10,7 +11,7 @@ import { getPropsFromAttributes } from "#/functions/attribute";
 import { getComponentProps } from "#/functions/props/get";
 import { setComponentProps } from "#/functions/props/set";
 
-const _Provider = () => {
+const _Provider = (): Atom.Host<any> => {
     const elRef: Required<Atom.Ref<DOM.AtomicoThis>> = Atom.useHost();
 
     const [disabled] = Atom.useProp<boolean>("disabled");
@@ -116,7 +117,7 @@ _Provider.props = {
         attr: "plugins",
         value: [] as Plugin[],
     },
-};
+} satisfies Schema.SchemaProps;
 
 /** Scrollbar provider type. */
 type ProviderElement = ComponentTypes<typeof _Provider>;

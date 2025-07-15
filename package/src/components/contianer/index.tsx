@@ -6,7 +6,7 @@ import { useLengthHandler } from "#/hooks/length";
 import { useComponentPropsSetter } from "#/hooks/props";
 import { useScrollHandler } from "#/hooks/scroll";
 
-const _Container = () => {
+const _Container = (): Atom.Host<any> => {
     useLengthHandler();
     useScrollHandler();
     useComponentPropsSetter("container");
