@@ -5,10 +5,13 @@ node_bin := "./node_modules/.bin/"
 biome := node_bin + "biome"
 tsc := node_bin + "tsc"
 tsdown := node_bin + "tsdown"
+vitest := node_bin + "vitest"
 typedoc := node_bin + "typedoc"
 vite := node_bin + "vite"
 
 package := "package"
+
+test := "test"
 
 example := "example"
 
@@ -17,6 +20,7 @@ _:
     just lint
     just fmt
     just build
+    just test
 
 # Install
 i:
@@ -44,6 +48,16 @@ fmt:
 # Build package
 build:
     cd ./{{package}} && ../{{tsdown}} -c ./tsdown.config.ts
+
+# Run tests:
+test:
+    cd ./{{test}} && ./{{vitest}} run
+
+# Run tests with different runtimes
+test-all:
+    cd ./test && pnpm run test
+    cd ./test && deno run test
+    cd ./test && bun run test
 
 # Generate APIs documentation
 api:

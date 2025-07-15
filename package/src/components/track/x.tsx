@@ -7,7 +7,6 @@ import { useComponentPropsSetter } from "#/hooks/props";
 
 const _TrackX = () => {
     const {
-        options: { disabled },
         x: { setHvTrack },
     } = useScrollCore();
 
@@ -16,8 +15,6 @@ const _TrackX = () => {
     });
 
     useComponentPropsSetter("trackX");
-
-    if (disabled) return <host>{}</host>;
 
     return (
         <host shadowDom>
