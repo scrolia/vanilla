@@ -103,13 +103,13 @@ _Provider.props = {
         type: Boolean,
         reflect: true,
         attr: "disabled",
-        value: false,
+        value: false as boolean,
     },
     page: {
         type: Boolean,
         reflect: true,
         attr: "page",
-        value: false,
+        value: false as boolean,
     },
     plugins: {
         type: Array as Atom.Type<Plugin[]>,
