@@ -13,7 +13,7 @@ package := "package"
 
 test := "test"
 
-example := "example"
+example := "examples/common"
 
 # Default action
 _:
