@@ -43,4 +43,21 @@ export default defineConfig([
         dts: true,
         format: "cjs",
     },
+    {
+        ...options,
+        entry: {
+            scrolia: "./src/init.ts",
+        },
+        format: "iife",
+        noExternal: [
+            "atomico",
+            "atomico/jsx-runtime",
+        ],
+        minify: true,
+        unbundle: false,
+        outputOptions: {
+            ...options.outputOptions,
+            entryFileNames: "[name].js",
+        },
+    },
 ]);

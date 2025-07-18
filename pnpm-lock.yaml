@@ -33,11 +33,11 @@ importers:
         specifier: ^5.8.3
         version: 5.8.3
 
-  example:
+  examples/import:
     dependencies:
       '@scrolia/vanilla':
         specifier: workspace:~
-        version: link:../package
+        version: link:../../package
     devDependencies:
       vite:
         specifier: ^7.0.4

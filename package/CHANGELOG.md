@@ -6,7 +6,6 @@ Reworked the implementation.
 
 - Remove default styles
 - Remove all previous options
-- Remove iife build
 
 ### What's New
 

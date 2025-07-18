@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en" class="sla-nsb">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vanilla</title>
+    <script src="../../package/dist/scrolia.js"></script>
+    <style>
+        :root {
+            font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            font-weight: 400;
+
+            font-synthesis: none;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .block {
+            display: block;
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+
+        .subBlock {
+            display: block;
+            width: 600px;
+            height: 600px;
+        }
+
+        .subVBlock {
+            display: block;
+            height: 600px;
+        }
+
+        .subHBlock {
+            display: block;
+            width: 600px;
+        }
+
+        .bg {
+            display: block;
+            width: 3000px;
+            height: 3000px;
+        }
+
+        .sla-nsb {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
+        .sla {
+            &.sla-provider {
+                position: relative;
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+
+            .sla-container {
+                position: relative;
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+
+            .sla-content {
+                position: relative;
+                display: block;
+                width: 100%;
+                height: 100%;
+                
+                &.sla-child {
+                    overflow: auto;
+                }
+            }
+
+            .sla-track {
+                position: fixed;
+                z-index: 1;
+
+                &.sla-child {
+                    position: absolute;
+                }
+
+                &.sla-x {
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 12px;
+                }
+
+                &.sla-y {
+                    top: 0;
+                    right: 0;
+                    width: 12px;
+                    height: 100%;
+                }
+            }
+
+            .sla-thumb {
+                position: absolute;
+                background-color: #99999955;
+
+                &.sla-x {
+                    height: 12px;
+                }
+
+                &.sla-y {
+                    width: 12px;
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <scrollbar-provider page class="sla sla-provider">
+        <scrollbar-container class="sla-container">
+            <scrollbar-content class="sla-content">
+                <div class="block">
+                    <scrollbar-provider class="sla sla-provider">
+                        <scrollbar-container class="sla-container">
+                            <scrollbar-content class="sla-content sla-child sla-nsb">
+                                <div class="subBlock">Block</div>
+                            </scrollbar-content>
+                            <scrollbar-track-x class="sla-track sla-child sla-x">
+                                <scrollbar-thumb-x class="sla-thumb sla-x"></scrollbar-thumb-x>
+                            </scrollbar-track-x>
+                            <scrollbar-track-y class="sla-track sla-child sla-y">
+                                <scrollbar-thumb-y class="sla-thumb sla-y"></scrollbar-thumb-y>
+                            </scrollbar-track-y>
+                        </scrollbar-container>
+                    </scrollbar-provider>
+                </div>
+                <div class="block">
+                    <scrollbar-provider class="sla sla-provider">
+                        <scrollbar-container class="sla-container">
+                            <scrollbar-content class="sla-content sla-child sla-nsb">
+                                <div class="subVBlock">Vertical Block</div>
+                            </scrollbar-content>
+                            <scrollbar-track-x class="sla-track sla-child sla-x">
+                                <scrollbar-thumb-x class="sla-thumb sla-x"></scrollbar-thumb-x>
+                            </scrollbar-track-x>
+                            <scrollbar-track-y class="sla-track sla-child sla-y">
+                                <scrollbar-thumb-y class="sla-thumb sla-y"></scrollbar-thumb-y>
+                            </scrollbar-track-y>
+                        </scrollbar-container>
+                    </scrollbar-provider>
+                </div>
+                <div class="block">
+                    <scrollbar-provider class="sla sla-provider">
+                        <scrollbar-container class="sla-container">
+                            <scrollbar-content class="sla-content sla-child sla-nsb">
+                                <div class="subHBlock">Horizontal Block</div>
+                            </scrollbar-content>
+                            <scrollbar-track-x class="sla-track sla-child sla-x">
+                                <scrollbar-thumb-x class="sla-thumb sla-x"></scrollbar-thumb-x>
+                            </scrollbar-track-x>
+                            <scrollbar-track-y class="sla-track sla-child sla-y">
+                                <scrollbar-thumb-y class="sla-thumb sla-y"></scrollbar-thumb-y>
+                            </scrollbar-track-y>
+                        </scrollbar-container>
+                    </scrollbar-provider>
+                </div>
+                <div class="bg"></div>
+            </scrollbar-content>
+            <scrollbar-track-x class="sla-track sla-x">
+                <scrollbar-thumb-x class="sla-thumb sla-x"></scrollbar-thumb-x>
+            </scrollbar-track-x>
+            <scrollbar-track-y class="sla-track sla-y">
+                <scrollbar-thumb-y class="sla-thumb sla-y"></scrollbar-thumb-y>
+            </scrollbar-track-y>
+        </scrollbar-container>
+    </scrollbar-provider>
+</body>
+
+</html>

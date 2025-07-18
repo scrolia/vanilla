@@ -31,6 +31,7 @@ const attachScrollbar = (el: HTMLElement, options?: AttachScrollbarOptions) => {
         "scrollbar-content",
     ) as ContentElement;
     content.classList.add("sla-nsb", "sla-content");
+    !page && content.classList.add("sla-child");
 
     const trackX: TrackXElement = document.createElement(
         "scrollbar-track-x",
