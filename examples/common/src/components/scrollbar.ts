@@ -14,9 +14,8 @@ type AttachScrollbarOptions = Pick<Options, "disabled" | "page">;
 const attachScrollbar = (el: HTMLElement, options?: AttachScrollbarOptions) => {
     const { disabled, page } = options ?? {};
 
-    const provider: ProviderElement = document.createElement(
-        "scrollbar-provider",
-    ) as ProviderElement;
+    const provider: ProviderElement =
+        document.createElement("scrollbar-provider");
     provider.classList.add("sla", "sla-provider");
 
     if (disabled) provider.disabled = disabled;
@@ -24,35 +23,25 @@ const attachScrollbar = (el: HTMLElement, options?: AttachScrollbarOptions) => {
 
     const container: ContainerElement = document.createElement(
         "scrollbar-container",
-    ) as ContainerElement;
+    );
     container.classList.add("sla-container");
 
-    const content: ContentElement = document.createElement(
-        "scrollbar-content",
-    ) as ContentElement;
+    const content: ContentElement = document.createElement("scrollbar-content");
     content.classList.add("sla-nsb", "sla-content");
     !page && content.classList.add("sla-child");
 
-    const trackX: TrackXElement = document.createElement(
-        "scrollbar-track-x",
-    ) as TrackXElement;
+    const trackX: TrackXElement = document.createElement("scrollbar-track-x");
     trackX.classList.add("sla-track", "sla-x");
     !page && trackX.classList.add("sla-child");
 
-    const trackY: TrackYElement = document.createElement(
-        "scrollbar-track-y",
-    ) as TrackYElement;
+    const trackY: TrackYElement = document.createElement("scrollbar-track-y");
     trackY.classList.add("sla-track", "sla-y");
     !page && trackY.classList.add("sla-child");
 
-    const thumbX: ThumbXElement = document.createElement(
-        "scrollbar-thumb-x",
-    ) as ThumbXElement;
+    const thumbX: ThumbXElement = document.createElement("scrollbar-thumb-x");
     thumbX.classList.add("sla-thumb", "sla-x");
 
-    const thumbY: ThumbYElement = document.createElement(
-        "scrollbar-thumb-y",
-    ) as ThumbYElement;
+    const thumbY: ThumbYElement = document.createElement("scrollbar-thumb-y");
     thumbY.classList.add("sla-thumb", "sla-y");
 
     const fragment: DocumentFragment = document.createDocumentFragment();
