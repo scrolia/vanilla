@@ -1,4 +1,4 @@
 packages:
   - ./package
   - ./test
-  - ./example
+  - ./examples/*

@@ -6,7 +6,25 @@ This is the documentation for Scrolia Vanilla.
 
 ## Installation
 
-Install this package as a dependency in the project:
+Import it from the CDN directly:
+
+> Choose the CDN provider based on the preference.
+
+> Replace `x.x.x` with the version number looking for.
+
+```html
+<!-- jsDelivr -->
+<script
+    src="https://cdn.jsdelivr.net/npm/@scrolia/vanilla@x.x.x/dist/scrolia.js"
+></script>
+
+<!-- UNPKG -->
+ <script
+    src="https://unpkg.com/@scrolia/vanilla@x.x.x/dist/scrolia.js"
+></script>
+```
+
+Or install this package as a dependency in the project:
 
 ```sh
 # npm
@@ -28,6 +46,8 @@ bun add @scrolia/vanilla
 ## Usage
 
 Define the components from the package:
+
+> Skip this step if importing from the CDN.
 
 ```ts
 import "@scrolia/vanilla/init";
@@ -94,7 +114,10 @@ Apply styles to the components using the preferred styling solution:
         position: relative;
         width: 100%;
         height: 100%;
-        overflow: auto;
+        
+        &.sla-child {
+            overflow: auto;
+        }
     }
 
     .sla-track {
@@ -158,7 +181,7 @@ HTML component setup:
 ```html
 <scrollbar-provider class="sla sla-provider">
     <scrollbar-container class="sla-container">
-        <scrollbar-content class="sla-content">
+        <scrollbar-content class="sla-content sla-child">
             <!-- Content -->
         </scrollbar-content>
         <scrollbar-track-x class="sla-track sla-child sla-x">

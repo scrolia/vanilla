@@ -14,8 +14,11 @@ please refer to the [APIs](./apis/README.md).
 
 ## Examples
 
-For the example,
-please refer to the [example](./example).
+For the CDN example,
+please refer to the [CDN example](./examples/cdn).
+
+For the common example,
+please refer to the [common example](./examples/common).
 
 ## License
 

@@ -11,12 +11,12 @@ import { getPropsFromAttributes } from "#/functions/attribute";
 import { getComponentProps } from "#/functions/props/get";
 import { setComponentProps } from "#/functions/props/set";
 
-const _Provider = (): Atom.Host<any> => {
+function _Provider(props: Atom.Props<typeof _Provider>): Atom.Host<any> {
     const elRef: Required<Atom.Ref<DOM.AtomicoThis>> = Atom.useHost();
 
-    const [disabled] = Atom.useProp<boolean>("disabled");
-    const [page] = Atom.useProp<boolean>("page");
-    const [plugins] = Atom.useProp<Plugin[]>("plugins");
+    const [disabled] = Atom.useState<boolean>(props.disabled ?? false);
+    const [page] = Atom.useState<boolean>(props.page ?? false);
+    const [plugins] = Atom.useState<Plugin[]>(props.plugins ?? []);
 
     const contentRef = Atom.useRef<HTMLElement | null>();
 
@@ -42,9 +42,9 @@ const _Provider = (): Atom.Host<any> => {
 
     Atom.useProvider(ScrollCoreContext, {
         options: {
-            disabled: disabled ?? false,
-            page: page ?? false,
-            plugins: plugins ?? [],
+            disabled,
+            page,
+            plugins,
         },
         contentRef,
         x: {
@@ -96,26 +96,23 @@ const _Provider = (): Atom.Host<any> => {
             <slot />
         </host>
     );
-};
+}
 
 _Provider.props = {
     disabled: {
         type: Boolean,
         reflect: true,
         attr: "disabled",
-        value: false as boolean,
     },
     page: {
         type: Boolean,
         reflect: true,
         attr: "page",
-        value: false as boolean,
     },
     plugins: {
         type: Array as Atom.Type<Plugin[]>,
-        reflect: false,
+        reflect: true,
         attr: "plugins",
-        value: [] as Plugin[],
     },
 } satisfies Schema.SchemaProps;
 
