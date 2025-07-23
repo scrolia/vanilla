@@ -4,14 +4,9 @@
         "@apst/biome": "~0.3.0",
         "@apst/tsconfig": "~0.1.3",
         "@biomejs/biome": "^2.1.2",
-        "tsdown": "~0.12.9",
+        "tsdown": "~0.13.0",
         "typedoc": "~0.28.7",
         "typedoc-plugin-markdown": "^4.7.1",
         "typescript": "^5.8.3"
-    },
-    "pnpm": {
-        "overrides": {
-            "rolldown": "1.0.0-beta.28"
-        }
     }
 }
