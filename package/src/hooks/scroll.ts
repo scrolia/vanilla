@@ -36,7 +36,7 @@ const useScrollHandler = (): void => {
 
                     result =
                         tryPlugin(plugin, plugin.onScroll, {
-                            position: "x",
+                            axis: "x",
                             isDisabled: disabled,
                             isPage: page,
                             isDefined: isDefinedX,
@@ -77,7 +77,7 @@ const useScrollHandler = (): void => {
 
                     result =
                         tryPlugin(plugin, plugin.onScroll, {
-                            position: "y",
+                            axis: "y",
                             isDisabled: disabled,
                             isPage: page,
                             isDefined: isDefinedY,

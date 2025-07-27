@@ -2,12 +2,12 @@ import type { Format, Partial } from "ts-vista";
 
 import type { ComponentProps } from "#/@types/component";
 
-/** The position of the scrollbar. */
-type Position = "x" | "y";
+/** The axis of the scrollbar. */
+type Axis = "x" | "y";
 
 type FunctionOptions = {
-    /** Whether it is a scrollbar for X axis or Y axis. */
-    position: Position;
+    /** The axis of the scrollbar. */
+    axis: Axis;
     /** Whether the scrollbar is disabled. */
     isDisabled: boolean;
     /** Whether it is a scrollbar for page. */
@@ -177,7 +177,7 @@ type CompleteOptions = {
 type Options = Format<Partial<CompleteOptions>>;
 
 export type {
-    Position,
+    Axis,
     OnSetLengthOptions,
     OnSetLengthResult,
     OnScrollOptions,

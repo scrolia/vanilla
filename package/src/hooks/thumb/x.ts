@@ -30,7 +30,7 @@ const useThumbXHandler = () => {
             if (!plugin.onDragStart) continue;
 
             tryPlugin(plugin, plugin.onDragStart, {
-                position: "x",
+                axis: "x",
                 isDisabled: disabled,
                 isPage: page,
                 isDefined: hvTrack && hvThumb,
@@ -59,7 +59,7 @@ const useThumbXHandler = () => {
 
                 result =
                     tryPlugin(plugin, plugin.onDragMove, {
-                        position: "x",
+                        axis: "x",
                         isDisabled: disabled,
                         isPage: page,
                         isDefined: hvTrack && hvThumb,
@@ -101,7 +101,7 @@ const useThumbXHandler = () => {
                 if (!plugin.onDragEnd) continue;
 
                 tryPlugin(plugin, plugin.onDragEnd, {
-                    position: "x",
+                    axis: "x",
                     isDisabled: disabled,
                     isPage: page,
                     isDefined: hvTrack && hvThumb,
