@@ -46,7 +46,7 @@ const useLengthHandler = (): void => {
 
                     result =
                         tryPlugin(plugin, plugin.onSetLength, {
-                            position: "x",
+                            axis: "x",
                             isDisabled: disabled,
                             isPage: page,
                             isDefined: isDefinedX,
@@ -101,7 +101,7 @@ const useLengthHandler = (): void => {
 
                     result =
                         tryPlugin(plugin, plugin.onSetLength, {
-                            position: "y",
+                            axis: "y",
                             isDisabled: disabled,
                             isPage: page,
                             isDefined: isDefinedY,

@@ -19,6 +19,7 @@ const Scrollbar = {
 
 export type { ComponentProps, CSSProperties } from "#/@types/component";
 export type {
+    Axis,
     OnDragEndOptions,
     OnDragMoveOptions,
     OnDragMoveResult,
@@ -31,7 +32,6 @@ export type {
     Plugin,
     PluginProps,
     PluginPropsFunction,
-    Position,
 } from "#/@types/options";
 export type { ContainerElement } from "#/components/contianer";
 export type { ContentElement } from "#/components/contnet";
