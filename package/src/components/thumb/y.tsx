@@ -6,7 +6,7 @@ import * as Atom from "atomico";
 
 import { useScrollCore } from "#/contexts/scrollcore";
 import { useComponentPropsSetter } from "#/hooks/props";
-import { useThumbYHandler } from "#/hooks/thumb/y";
+import { useThumbYHandler } from "#/hooks/thumb";
 
 const _ThumbY = (): Atom.Host<any> => {
     const elRef: Required<Atom.Ref<DOM.AtomicoThis>> = Atom.useHost();
