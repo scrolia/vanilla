@@ -7,6 +7,6 @@
         "tsdown": "~0.13.2",
         "typedoc": "~0.28.9",
         "typedoc-plugin-markdown": "^4.8.0",
-        "typescript": "^5.8.3"
+        "typescript": "^5.9.2"
     }
 }
