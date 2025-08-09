@@ -6,7 +6,7 @@
 const Scrollbar: object;
 ```
 
-Defined in: [package/src/index.ts:10](https://github.com/scrolia/vanilla/blob/c815e216f987f48e097bcb0896f128fe43b9f55a/package/src/index.ts#L10)
+Defined in: [package/src/index.ts:10](https://github.com/scrolia/vanilla/blob/71d11a743faf8de64b56201c92ff9484fdce9f24/package/src/index.ts#L10)
 
 Scrollbar components.
 

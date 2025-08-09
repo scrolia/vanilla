@@ -6,6 +6,6 @@
 type ThumbYElement = ComponentTypes<typeof _ThumbY>;
 ```
 
-Defined in: [package/src/components/thumb/y.tsx:60](https://github.com/scrolia/vanilla/blob/c815e216f987f48e097bcb0896f128fe43b9f55a/package/src/components/thumb/y.tsx#L60)
+Defined in: [package/src/components/thumb/y.tsx:64](https://github.com/scrolia/vanilla/blob/71d11a743faf8de64b56201c92ff9484fdce9f24/package/src/components/thumb/y.tsx#L64)
 
 Scrollbar thumb Y type.
