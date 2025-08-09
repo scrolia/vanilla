@@ -6,6 +6,6 @@
 type ContainerElement = ComponentTypes<typeof _Container>;
 ```
 
-Defined in: [package/src/components/contianer/index.tsx:22](https://github.com/scrolia/vanilla/blob/c815e216f987f48e097bcb0896f128fe43b9f55a/package/src/components/contianer/index.tsx#L22)
+Defined in: [package/src/components/contianer/index.tsx:22](https://github.com/scrolia/vanilla/blob/71d11a743faf8de64b56201c92ff9484fdce9f24/package/src/components/contianer/index.tsx#L22)
 
 Scrollbar container type.

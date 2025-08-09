@@ -6,6 +6,7 @@
 
 | Type Alias | Description |
 | ------ | ------ |
+| [Axis](type-aliases/Axis.md) | The axis of the scrollbar. |
 | [ComponentProps](type-aliases/ComponentProps.md) | Component properties. |
 | [ContainerElement](type-aliases/ContainerElement.md) | Scrollbar container type. |
 | [ContentElement](type-aliases/ContentElement.md) | Scrollbar content type. |
@@ -22,7 +23,6 @@
 | [Plugin](type-aliases/Plugin.md) | Scrollbar plugin. |
 | [PluginProps](type-aliases/PluginProps.md) | Scrollbar plugin props. |
 | [PluginPropsFunction](type-aliases/PluginPropsFunction.md) | The function to get previous props and return new props. |
-| [Position](type-aliases/Position.md) | The position of the scrollbar. |
 | [ProviderElement](type-aliases/ProviderElement.md) | Scrollbar provider type. |
 | [ThumbXElement](type-aliases/ThumbXElement.md) | Scrollbar thumb X type. |
 | [ThumbYElement](type-aliases/ThumbYElement.md) | Scrollbar thumb Y type. |
