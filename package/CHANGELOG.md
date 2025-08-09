@@ -1,4 +1,4 @@
-## 0.6.0
+## 0.6.0 (2025-08-09)
 
 Reworked the implementation.
 
