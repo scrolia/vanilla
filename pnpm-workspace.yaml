@@ -1,4 +1,11 @@
 packages:
-  - ./package
-  - ./test
-  - ./examples/*
+    - ./package
+    - ./test
+    - ./examples/*
+
+minimumReleaseAge: 1440
+
+minimumReleaseAgeExclude:
+    - "@apst/biome"
+    - "@apst/tsconfig"
+    - "ts-vista"
