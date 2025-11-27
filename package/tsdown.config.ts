@@ -1,8 +1,8 @@
-import type { Options } from "tsdown";
+import type { UserConfig } from "tsdown";
 
 import { defineConfig } from "tsdown";
 
-const options: Options = {
+const options: UserConfig = {
     entry: {
         // public
         index: "./src/index.ts",
