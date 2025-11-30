@@ -20,6 +20,10 @@ please refer to the [CDN example](./examples/cdn).
 For the common example,
 please refer to the [common example](./examples/common).
 
+## Contributing
+
+For contributing, please refer to the [contributing guide](./CONTRIBUTING.md).
+
 ## License
 
 This project is licensed under the terms of the MIT license.

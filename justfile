@@ -26,11 +26,6 @@ _:
 i:
     pnpm install
 
-# Setup the project
-setup:
-    brew install ls-lint typos-cli
-    just i
-
 # Lint with TypeScript Compiler
 tsc:
     cd ./{{pkg}} && ../{{tsc}} --noEmit
