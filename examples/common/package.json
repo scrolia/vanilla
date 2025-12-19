@@ -8,7 +8,7 @@
     },
     "devDependencies": {
         "vite": "^7.3.0",
-        "vite-tsconfig-paths": "^6.0.1"
+        "vite-tsconfig-paths": "^6.0.2"
     },
     "dependencies": {
         "@scrolia/vanilla": "workspace:~"
