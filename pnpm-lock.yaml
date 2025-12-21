@@ -14,6 +14,9 @@ importers:
       '@apst/tsconfig':
         specifier: ~0.1.3
         version: 0.1.3(typescript@5.9.3)
+      '@apst/tsdown':
+        specifier: ~0.1.0
+        version: 0.1.0(tsdown@0.18.1(typescript@5.9.3))
       '@biomejs/biome':
         specifier: ^2.3.10
         version: 2.3.10
@@ -90,6 +93,14 @@ packages:
       typescript: '>=5'
     peerDependenciesMeta:
       typescript:
+        optional: true
+
+  '@apst/tsdown@0.1.0':
+    resolution: {integrity: sha512-6GCqXHr7m7GFOfPQvZayLDyWe3mIXeclv+lNVeIc0QmD3z+F7CSyjNMwGwZldOwv61d5LcDTrvvt2DgU+ncTaw==}
+    peerDependencies:
+      tsdown: ~0.18.0
+    peerDependenciesMeta:
+      tsdown:
         optional: true
 
   '@asamuzakjp/css-color@3.2.0':
@@ -819,6 +830,9 @@ packages:
   es-module-lexer@1.7.0:
     resolution: {integrity: sha512-jEQoCwk8hyb2AZziIOLhDqpm5+2ww5uIE6lkO/6jcOCusfk6LhMHpXXfBLXTZ7Ydyt0j4VoUQv6uGNYbdW+kBA==}
 
+  es-toolkit@1.43.0:
+    resolution: {integrity: sha512-SKCT8AsWvYzBBuUqMk4NPwFlSdqLpJwmy6AP322ERn8W2YLIB6JBXnwMI2Qsh2gfphT3q7EKAxKb23cvFHFwKA==}
+
   esbuild@0.27.1:
     resolution: {integrity: sha512-yY35KZckJJuVVPXpvjgxiCuVEJT67F6zDeVTv4rizyPrfGBUpZQsvmxnN+C371c2esD/hNMjj4tpBhuueLN7aA==}
     engines: {node: '>=18'}
@@ -1321,6 +1335,12 @@ snapshots:
   '@apst/tsconfig@0.1.3(typescript@5.9.3)':
     optionalDependencies:
       typescript: 5.9.3
+
+  '@apst/tsdown@0.1.0(tsdown@0.18.1(typescript@5.9.3))':
+    dependencies:
+      es-toolkit: 1.43.0
+    optionalDependencies:
+      tsdown: 0.18.1(typescript@5.9.3)
 
   '@asamuzakjp/css-color@3.2.0':
     dependencies:
@@ -1847,6 +1867,8 @@ snapshots:
   entities@6.0.1: {}
 
   es-module-lexer@1.7.0: {}
+
+  es-toolkit@1.43.0: {}
 
   esbuild@0.27.1:
     optionalDependencies:

@@ -1,8 +1,19 @@
 import type { UserConfig } from "tsdown";
 
-import { defineConfig } from "tsdown";
+import { defineConfig } from "@apst/tsdown";
+import {
+    cjsPreset,
+    dtsPreset,
+    esmPreset,
+    iifePreset,
+} from "@apst/tsdown/presets";
+
+const optionsBase: UserConfig = {
+    platform: "browser",
+};
 
 const options: UserConfig = {
+    ...optionsBase,
     entry: {
         // public
         index: "./src/index.ts",
@@ -16,47 +27,31 @@ const options: UserConfig = {
         "hooks/scroll": "./src/hooks/scroll.ts",
         "hooks/thumb": "./src/hooks/thumb.ts",
     },
-    dts: false,
-    outDir: "./dist",
-    clean: true,
-    platform: "browser",
-    treeshake: true,
-    sourcemap: true,
-    minify: false,
-    shims: true,
-    unbundle: true,
-    inputOptions: {
-        experimental: {
-            attachDebugInfo: "none",
-        },
+};
+
+const optionsIIFE: UserConfig = {
+    ...optionsBase,
+    entry: {
+        scrolia: "./src/init.ts",
     },
+    noExternal: [
+        "atomico",
+        "atomico/jsx-runtime",
+    ],
+};
+
+const optionsIIFEMinified: UserConfig = {
+    ...optionsIIFE,
+    entry: {
+        "scrolia.min": "./src/init.ts",
+    },
+    minify: true,
 };
 
 export default defineConfig([
-    {
-        ...options,
-        format: "esm",
-    },
-    {
-        ...options,
-        dts: true,
-        format: "cjs",
-    },
-    {
-        ...options,
-        entry: {
-            scrolia: "./src/init.ts",
-        },
-        format: "iife",
-        noExternal: [
-            "atomico",
-            "atomico/jsx-runtime",
-        ],
-        minify: true,
-        unbundle: false,
-        outputOptions: {
-            ...options.outputOptions,
-            entryFileNames: "[name].js",
-        },
-    },
+    esmPreset(options),
+    cjsPreset(options),
+    dtsPreset(options),
+    iifePreset(optionsIIFE),
+    iifePreset(optionsIIFEMinified),
 ]);
