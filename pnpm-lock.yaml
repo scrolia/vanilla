@@ -16,13 +16,13 @@ importers:
         version: 0.1.3(typescript@5.9.3)
       '@apst/tsdown':
         specifier: ~0.1.2
-        version: 0.1.2(tsdown@0.20.2(typescript@5.9.3))
+        version: 0.1.2(tsdown@0.20.3(typescript@5.9.3))
       '@biomejs/biome':
         specifier: ^2.3.14
         version: 2.3.14
       tsdown:
-        specifier: ~0.20.2
-        version: 0.20.2(typescript@5.9.3)
+        specifier: ~0.20.3
+        version: 0.20.3(typescript@5.9.3)
       typedoc:
         specifier: ~0.28.16
         version: 0.28.16(typescript@5.9.3)
@@ -879,8 +879,8 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
 
-  get-tsconfig@4.13.1:
-    resolution: {integrity: sha512-EoY1N2xCn44xU6750Sx7OjOIT59FkmstNc3X6y5xpz7D5cBtZRe/3pSlTkDJgqsOk3WwZPkWfonhhUJfttQo3w==}
+  get-tsconfig@4.13.6:
+    resolution: {integrity: sha512-shZT/QMiSHc/YBLxxOkMtgSid5HFoauqCE3/exfsEcwg1WkeqjG+V40yBbBrsD+jW2HDXcs28xOfcbm2jI8Ddw==}
 
   globrex@0.1.2:
     resolution: {integrity: sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==}
@@ -1064,8 +1064,8 @@ packages:
     resolution: {integrity: sha512-xAg7SOnEhrm5zI3puOOKyy1OMcMlIJZYNJY7xLBwSze0UjhPLnWfj2GF2EpT0jmzaJKIWKHLsaSSajf35bcYnA==}
     engines: {node: '>=v12.22.7'}
 
-  semver@7.7.3:
-    resolution: {integrity: sha512-SdsKMrI9TdgjdweUSR9MweHA4EJ8YxHn8DFaDisvhVlUOe4BF1tLD7GAj0lIqWVl+dPb/rExr0Btby5loQm20Q==}
+  semver@7.7.4:
+    resolution: {integrity: sha512-vFKC2IEtQnVhpT78h1Yp8wzwrf8CM+MzKMHGJZfBtzhZNycRFnXsHk6E5TxIkkMsgNS7mdX3AGB7x2QM2di4lA==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -1154,8 +1154,8 @@ packages:
       typescript:
         optional: true
 
-  tsdown@0.20.2:
-    resolution: {integrity: sha512-CBoA7rDtyuNkRcFsf8OgFQqBZjCC/ffbNHuS8aUE3HvTJDysWiW7REsQ/nqCYPqsCzy/MqA0tleJj8r+gfy97Q==}
+  tsdown@0.20.3:
+    resolution: {integrity: sha512-qWOUXSbe4jN8JZEgrkc/uhJpC8VN2QpNu3eZkBWwNuTEjc/Ik1kcc54ycfcQ5QPRHeu9OQXaLfCI3o7pEJgB2w==}
     engines: {node: '>=20.19.0'}
     hasBin: true
     peerDependencies:
@@ -1354,11 +1354,11 @@ snapshots:
     optionalDependencies:
       typescript: 5.9.3
 
-  '@apst/tsdown@0.1.2(tsdown@0.20.2(typescript@5.9.3))':
+  '@apst/tsdown@0.1.2(tsdown@0.20.3(typescript@5.9.3))':
     dependencies:
       es-toolkit: 1.44.0
     optionalDependencies:
-      tsdown: 0.20.2(typescript@5.9.3)
+      tsdown: 0.20.3(typescript@5.9.3)
 
   '@asamuzakjp/css-color@3.2.0':
     dependencies:
@@ -1943,7 +1943,7 @@ snapshots:
   fsevents@2.3.3:
     optional: true
 
-  get-tsconfig@4.13.1:
+  get-tsconfig@4.13.6:
     dependencies:
       resolve-pkg-maps: 1.0.0
 
@@ -2096,7 +2096,7 @@ snapshots:
       ast-kit: 3.0.0-beta.1
       birpc: 4.0.0
       dts-resolver: 2.1.3
-      get-tsconfig: 4.13.1
+      get-tsconfig: 4.13.6
       obug: 2.1.1
       rolldown: 1.0.0-rc.3
     optionalDependencies:
@@ -2162,7 +2162,7 @@ snapshots:
     dependencies:
       xmlchars: 2.2.0
 
-  semver@7.7.3: {}
+  semver@7.7.4: {}
 
   siginfo@2.0.0: {}
 
@@ -2226,7 +2226,7 @@ snapshots:
     optionalDependencies:
       typescript: 5.9.3
 
-  tsdown@0.20.2(typescript@5.9.3):
+  tsdown@0.20.3(typescript@5.9.3):
     dependencies:
       ansis: 4.2.0
       cac: 6.7.14
@@ -2238,7 +2238,7 @@ snapshots:
       picomatch: 4.0.3
       rolldown: 1.0.0-rc.3
       rolldown-plugin-dts: 0.22.1(rolldown@1.0.0-rc.3)(typescript@5.9.3)
-      semver: 7.7.3
+      semver: 7.7.4
       tinyexec: 1.0.2
       tinyglobby: 0.2.15
       tree-kill: 1.2.2
