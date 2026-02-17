@@ -10,6 +10,7 @@ import {
 
 const optionsBase: UserConfig = {
     platform: "browser",
+    inlineOnly: false, // suppress warning for atomico
 };
 
 const options: UserConfig = {
