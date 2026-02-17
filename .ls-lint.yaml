@@ -6,6 +6,7 @@ ls:
 ignore:
     - .git
     - .github
+    - .vscode
     - __MACOSX
     - "**/__MACOSX"
     - .DS_Store
