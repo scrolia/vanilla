@@ -36,6 +36,10 @@ lint:
     typos
     just tsc
 
+# Lint code with Biome
+lint-biome:
+    {{biome}} lint .
+
 # Format code
 fmt:
     {{biome}} check --write .
