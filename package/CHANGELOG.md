@@ -1,17 +1,23 @@
+## Next
+
+### What's Changed
+
+- optimize internal states logic
+
 ## 0.6.0 (2025-08-09)
 
 Reworked the implementation.
 
 ### Breaking Changes
 
-- Remove default styles
-- Remove all previous options
+- remove default styles
+- remove all previous options
 
 ### What's New
 
-- Implemented as Web Component
-- Headless by default
-- Provider component now accepts the following props:
+- implemented as Web Component
+- headless by default
+- provider component now accepts the following props:
     - `disabled`
     - `page`
     - `plugins`
@@ -58,26 +64,26 @@ HTML setup:
 
 ### What's New
 
-- Add sourcemap support for CSS
+- add sourcemap support for CSS
 
 ### What's Changed
 
-- Avoid `NaN` value to be passed to CSS style property
-- Remove `@scrolia/shared` from dependencies
+- avoid `NaN` value to be passed to CSS style property
+- remove `@scrolia/shared` from dependencies
 
 ## 0.4.0 (2025-04-17)
 
 ### Breaking Changes
 
-- Remove `pageScrollbar` and `componentScrollbar` function
-- Remove `checkDeviceEnvironment` function
-- Move and rename options:
+- remove `pageScrollbar` and `componentScrollbar` function
+- remove `checkDeviceEnvironment` function
+- move and rename options:
     - `contentProps` => `attributes.content`
     - `trackXProps` => `attributes.trackX`
     - `trackYProps` => `attributes.trackY`
     - `thumbXProps` => `attributes.thumbX`
     - `thumbYProps` => `attributes.thumbY`
-- Remove options:
+- remove options:
     - `color`
     - `colorHover`
     - `colorActive`
@@ -85,15 +91,15 @@ HTML setup:
 
 ### What's New
 
-- Add `createScrollbar` function
-- Add `page` option
-- Add `headless` option
-- Add `setScrollbarLength` option
-- Add `activeTrackClassName` option
-- Add `activeThumbClassName` option
-- Add `x` object option
-- Add `y` object option
-- Add sourcemap support
+- add `createScrollbar` function
+- add `page` option
+- add `headless` option
+- add `setScrollbarLength` option
+- add `activeTrackClassName` option
+- add `activeThumbClassName` option
+- add `x` object option
+- add `y` object option
+- add sourcemap support
 
 ### Migrating from 0.3.0 to 0.4.0
 
@@ -139,58 +145,58 @@ const container: HTMLDivElement = document.createElement("div");
 
 ### Breaking Changes
 
-- Remove `enable` prop, use `disabled` prop instead
-- Rename `colorDrag` to `colorActive`
-- Update `checkDeviceEnvironment` function for the new prop
+- remove `enable` prop, use `disabled` prop instead
+- rename `colorDrag` to `colorActive`
+- update `checkDeviceEnvironment` function for the new prop
 
 ### What's New
 
-- Add `disabled` prop
-- Component now require the CSS to be imported
+- add `disabled` prop
+- component now require the CSS to be imported
 
 ### What's Changed
 
-- Add missing `Position` type
+- add missing `Position` type
 
 ## 0.2.3 (2024-12-10)
 
 ### What's Changed
 
-- Fix on the scrollbar update function
-- Remove unused track and thumb on specific position
+- fix on the scrollbar update function
+- remove unused track and thumb on specific position
 
 ## 0.2.2 (2024-12-01)
 
 ### What's Changed
 
-- Better support for the scrollbar on navigation
-- Performance optimization
+- better support for the scrollbar on navigation
+- performance optimization
 
 ## 0.2.1 (2024-11-29)
 
 ### What's Changed
 
-- Fix the issue that scrollbar do not appear when the track on hover
-- Export type `HTMLAttributes`
+- fix the issue that scrollbar do not appear when the track on hover
+- export type `HTMLAttributes`
 
 ## 0.2.0 (2024-11-28)
 
 ### What's New
 
-- Add support for ES Module
-- Add `checkDeviceEnvironment` function
-- Add `enable` option
+- add support for ES Module
+- add `checkDeviceEnvironment` function
+- add `enable` option
 
 ### What's Changed
 
-- Support all environments by default
+- support all environments by default
 
 ## 0.1.1 (2024-05-30)
 
 ### What's Changed
 
-- Prevent update on popstate event in same URL
+- prevent update on popstate event in same URL
 
 ## 0.1.0 (2024-05-30)
 
-First release
+initial release
