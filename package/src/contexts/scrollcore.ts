@@ -22,6 +22,35 @@ type ScrollCoreStates = {
     setScrollbarOffset: Atom.SetState<number>;
 };
 
+const useScrollCoreStates = (): ScrollCoreStates => {
+    const [hvTrack, setHvTrack] = Atom.useState<boolean>(false);
+    const [hvThumb, setHvThumb] = Atom.useState<boolean>(false);
+
+    const total: Atom.Ref<number> = Atom.useRef<number>(0);
+
+    const view: Atom.Ref<number> = Atom.useRef<number>(0);
+
+    const viewOffset: Atom.Ref<number> = Atom.useRef<number>(0);
+
+    const [scrollbarLength, setScrollbarLength] = Atom.useState<number>(0);
+
+    const [scrollbarOffset, setScrollbarOffset] = Atom.useState<number>(0);
+
+    return {
+        hvTrack,
+        setHvTrack,
+        hvThumb,
+        setHvThumb,
+        total,
+        view,
+        viewOffset,
+        scrollbarLength,
+        setScrollbarLength,
+        scrollbarOffset,
+        setScrollbarOffset,
+    };
+};
+
 /** Core for internal logic. */
 type ScrollCore = {
     options: ScrollCoreOptions;
@@ -46,4 +75,4 @@ const useScrollCore = (): ScrollCore => {
 };
 
 export type { ScrollCoreOptions, ScrollCoreStates, ScrollCore };
-export { ScrollCoreContext, useScrollCore };
+export { useScrollCoreStates, ScrollCoreContext, useScrollCore };

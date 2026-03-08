@@ -3,10 +3,11 @@ import type * as Schema from "atomico/types/schema";
 
 import type { ComponentProps, ComponentTypes } from "#/@types/component";
 import type { Plugin } from "#/@types/options";
+import type { ScrollCoreStates } from "#/contexts/scrollcore";
 
 import * as Atom from "atomico";
 
-import { ScrollCoreContext } from "#/contexts/scrollcore";
+import { ScrollCoreContext, useScrollCoreStates } from "#/contexts/scrollcore";
 import { getPropsFromAttributes } from "#/functions/attribute";
 import { getComponentProps } from "#/functions/props/get";
 import { setComponentProps } from "#/functions/props/set";
@@ -20,25 +21,8 @@ function _Provider(props: Atom.Props<typeof _Provider>): Atom.Host<any> {
 
     const contentRef = Atom.useRef<HTMLElement | null>();
 
-    const [hvTrackX, setHvTrackX] = Atom.useState<boolean>(false);
-    const [hvThumbX, setHvThumbX] = Atom.useState<boolean>(false);
-    const [hvTrackY, setHvTrackY] = Atom.useState<boolean>(false);
-    const [hvThumbY, setHvThumbY] = Atom.useState<boolean>(false);
-
-    const totalX: Atom.Ref<number> = Atom.useRef<number>(0);
-    const totalY: Atom.Ref<number> = Atom.useRef<number>(0);
-
-    const viewX: Atom.Ref<number> = Atom.useRef<number>(0);
-    const viewY: Atom.Ref<number> = Atom.useRef<number>(0);
-
-    const viewOffsetX: Atom.Ref<number> = Atom.useRef<number>(0);
-    const viewOffsetY: Atom.Ref<number> = Atom.useRef<number>(0);
-
-    const [scrollbarLengthX, setScrollbarLengthX] = Atom.useState<number>(0);
-    const [scrollbarLengthY, setScrollbarLengthY] = Atom.useState<number>(0);
-
-    const [scrollbarOffsetX, setScrollbarOffsetX] = Atom.useState<number>(0);
-    const [scrollbarOffsetY, setScrollbarOffsetY] = Atom.useState<number>(0);
+    const x: ScrollCoreStates = useScrollCoreStates();
+    const y: ScrollCoreStates = useScrollCoreStates();
 
     Atom.useProvider(ScrollCoreContext, {
         options: {
@@ -47,32 +31,8 @@ function _Provider(props: Atom.Props<typeof _Provider>): Atom.Host<any> {
             plugins,
         },
         contentRef,
-        x: {
-            hvTrack: hvTrackX,
-            setHvTrack: setHvTrackX,
-            hvThumb: hvThumbX,
-            setHvThumb: setHvThumbX,
-            total: totalX,
-            view: viewX,
-            viewOffset: viewOffsetX,
-            scrollbarLength: scrollbarLengthX,
-            setScrollbarLength: setScrollbarLengthX,
-            scrollbarOffset: scrollbarOffsetX,
-            setScrollbarOffset: setScrollbarOffsetX,
-        },
-        y: {
-            hvTrack: hvTrackY,
-            setHvTrack: setHvTrackY,
-            hvThumb: hvThumbY,
-            setHvThumb: setHvThumbY,
-            total: totalY,
-            view: viewY,
-            viewOffset: viewOffsetY,
-            scrollbarLength: scrollbarLengthY,
-            setScrollbarLength: setScrollbarLengthY,
-            scrollbarOffset: scrollbarOffsetY,
-            setScrollbarOffset: setScrollbarOffsetY,
-        },
+        x,
+        y,
     });
 
     Atom.useEffect((): void => {
