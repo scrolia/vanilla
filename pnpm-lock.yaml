@@ -15,8 +15,8 @@ importers:
         specifier: ~0.1.3
         version: 0.1.3(typescript@5.9.3)
       '@apst/tsdown':
-        specifier: ~0.2.0
-        version: 0.2.0(tsdown@0.21.2(typescript@5.9.3))
+        specifier: ~0.3.0
+        version: 0.3.0(tsdown@0.21.2(typescript@5.9.3))
       '@biomejs/biome':
         specifier: ^2.4.6
         version: 2.4.6
@@ -95,8 +95,8 @@ packages:
       typescript:
         optional: true
 
-  '@apst/tsdown@0.2.0':
-    resolution: {integrity: sha512-9TEwQvXFNweNY7UUAzs3qvt0/t9ZL7h/m8EsCVpEOoW/iwIZpcpMd1Y6SC8roPpNaTKpGX98JXQp1XrzVcXwXg==}
+  '@apst/tsdown@0.3.0':
+    resolution: {integrity: sha512-0EbGbMr6UpQRAgCTh8VLVANLWKCs86XcaeDZT/ykJbrnq13u4WULJbucUrrN5ZT7ipeaAWAwfPVaD4+yYajP3Q==}
     peerDependencies:
       tsdown: ~0.21.0
     peerDependenciesMeta:
@@ -1375,7 +1375,7 @@ snapshots:
     optionalDependencies:
       typescript: 5.9.3
 
-  '@apst/tsdown@0.2.0(tsdown@0.21.2(typescript@5.9.3))':
+  '@apst/tsdown@0.3.0(tsdown@0.21.2(typescript@5.9.3))':
     dependencies:
       es-toolkit: 1.45.1
     optionalDependencies:

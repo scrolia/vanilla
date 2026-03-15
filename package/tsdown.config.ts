@@ -10,7 +10,6 @@ import {
 
 const optionsBase: UserConfig = {
     platform: "browser",
-    inlineOnly: false, // suppress warning for atomico
 };
 
 const options: UserConfig = {
@@ -28,6 +27,7 @@ const options: UserConfig = {
         "hooks/scroll": "./src/hooks/scroll.ts",
         "hooks/thumb": "./src/hooks/thumb.ts",
     },
+    unbundle: true,
 };
 
 const optionsIIFE: UserConfig = {
@@ -35,10 +35,13 @@ const optionsIIFE: UserConfig = {
     entry: {
         scrolia: "./src/init.ts",
     },
-    noExternal: [
-        "atomico",
-        "atomico/jsx-runtime",
-    ],
+    deps: {
+        onlyBundle: false,
+        alwaysBundle: [
+            "atomico",
+            "atomico/jsx-runtime",
+        ],
+    },
 };
 
 const optionsIIFEMinified: UserConfig = {

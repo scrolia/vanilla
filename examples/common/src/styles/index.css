@@ -17,7 +17,6 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
 
-    /* biome-ignore lint/correctness/noUnknownPseudoElement: webkit scrollbar */
     &::-webkit-scrollbar {
         display: none;
     }
