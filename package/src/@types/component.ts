@@ -16,4 +16,4 @@ type ComponentProps<T extends keyof HTMLElementTagNameMap> = Partial<
 /** Component types. */
 type ComponentTypes<Component> = DOM.AtomicoThis<Atom.Props<Component>>;
 
-export type { CSSProperties, ComponentProps, ComponentTypes };
+export type { ComponentProps, ComponentTypes, CSSProperties };

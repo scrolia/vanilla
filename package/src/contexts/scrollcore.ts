@@ -74,5 +74,5 @@ const useScrollCore = (): ScrollCore => {
     return core;
 };
 
-export type { ScrollCoreOptions, ScrollCoreStates, ScrollCore };
-export { useScrollCoreStates, ScrollCoreContext, useScrollCore };
+export type { ScrollCore, ScrollCoreOptions, ScrollCoreStates };
+export { ScrollCoreContext, useScrollCore, useScrollCoreStates };
