@@ -5,7 +5,7 @@
         "@apst/tsconfig": "~0.2.1",
         "@apst/tsdown": "~0.3.0",
         "@biomejs/biome": "^2.4.9",
-        "tsdown": "~0.21.5",
+        "tsdown": "~0.21.7",
         "typedoc": "~0.28.18",
         "typedoc-plugin-markdown": "^4.11.0",
         "typescript": "^5.9.3"
