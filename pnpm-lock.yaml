@@ -12,8 +12,8 @@ importers:
         specifier: ~0.3.1
         version: 0.3.1(@biomejs/biome@2.4.12)
       '@apst/tsconfig':
-        specifier: ~0.2.1
-        version: 0.2.1(typescript@5.9.3)
+        specifier: ~0.3.0
+        version: 0.3.0(typescript@5.9.3)
       '@apst/tsdown':
         specifier: ~0.3.0
         version: 0.3.0(tsdown@0.21.9(typescript@5.9.3))
@@ -87,8 +87,8 @@ packages:
       '@biomejs/biome':
         optional: true
 
-  '@apst/tsconfig@0.2.1':
-    resolution: {integrity: sha512-geGD89aVK1uHXlCvkW9YJOkpFJnAxfdPuSFBQMIzbY06nZp9A0SLZwRtapGlxOeHWz4GJNxvJk30Pzsznar3iw==}
+  '@apst/tsconfig@0.3.0':
+    resolution: {integrity: sha512-1fvjlQLOexuVqZaQj7K+n/3GxEAk5WcbuSuUsaxpfxhEuWpTIGop04nGX7XENScZhkxm4+vFIFy1LsYLNpOUjQ==}
     peerDependencies:
       typescript: ^5.0.0 || ^6.0.0
     peerDependenciesMeta:
@@ -1497,7 +1497,7 @@ snapshots:
     optionalDependencies:
       '@biomejs/biome': 2.4.12
 
-  '@apst/tsconfig@0.2.1(typescript@5.9.3)':
+  '@apst/tsconfig@0.3.0(typescript@5.9.3)':
     optionalDependencies:
       typescript: 5.9.3
 
