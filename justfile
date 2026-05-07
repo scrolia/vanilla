@@ -17,10 +17,7 @@ example := "examples/common"
 
 # Default action
 _:
-    just lint
-    just fmt
-    just build
-    just test
+    just --list -u
 
 # Install
 i:
@@ -52,11 +49,12 @@ build:
 test:
     cd ./{{test}} && {{vitest}} run
 
-# Run tests with different runtimes
-test-all:
-    cd ./test && pnpm run test
-    cd ./test && deno run test
-    cd ./test && bun run test
+# Check code
+check:
+    just lint
+    just fmt
+    just build
+    just test
 
 # Generate APIs documentation
 api:
@@ -86,16 +84,48 @@ publish-try:
 publish:
     cd ./{{pkg}} && {{publish}}
 
-# Clean builds
-clean:
+# Clean builds (Linux)
+clean-linux:
     rm -rf ./{{example}}/dist
     rm -rf ./{{pkg}}/dist
 
-# Clean everything
-clean-all:
+# Clean builds (macOS)
+clean-macos:
+    just clean-linux
+
+# Clean builds (Windows)
+clean-windows:
+    Remove-Item -Recurse -Force ./{{example}}/dist
+    Remove-Item -Recurse -Force ./{{pkg}}/dist
+
+# Clean builds
+clean:
+    just clean-{{os()}}
+
+# Clean everything (Linux)
+clean-all-linux:
     just clean
 
     rm -rf ./{{example}}/node_modules
+
     rm -rf ./{{pkg}}/node_modules
 
     rm -rf ./node_modules
+
+# Clean everything (macOS)
+clean-all-macos:
+    just clean-all-linux
+
+# Clean everything (Windows)
+clean-all-windows:
+    just clean
+
+    Remove-Item -Recurse -Force ./{{example}}/node_modules
+
+    Remove-Item -Recurse -Force ./{{pkg}}/node_modules
+
+    Remove-Item -Recurse -Force ./node_modules
+
+# Clean everything
+clean-all:
+    just clean-all-{{os()}}
