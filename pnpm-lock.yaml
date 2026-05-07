@@ -12,26 +12,26 @@ importers:
         specifier: ~0.3.1
         version: 0.3.1(@biomejs/biome@2.4.14)
       '@apst/tsconfig':
-        specifier: ~0.2.1
-        version: 0.2.1(typescript@5.9.3)
+        specifier: ~0.3.0
+        version: 0.3.0(typescript@6.0.3)
       '@apst/tsdown':
         specifier: ~0.3.0
-        version: 0.3.0(tsdown@0.21.10(typescript@5.9.3))
+        version: 0.3.0(tsdown@0.21.10(typescript@6.0.3))
       '@biomejs/biome':
         specifier: ^2.4.14
         version: 2.4.14
       tsdown:
         specifier: ~0.21.10
-        version: 0.21.10(typescript@5.9.3)
+        version: 0.21.10(typescript@6.0.3)
       typedoc:
         specifier: ~0.28.19
-        version: 0.28.19(typescript@5.9.3)
+        version: 0.28.19(typescript@6.0.3)
       typedoc-plugin-markdown:
         specifier: ^4.11.0
-        version: 4.11.0(typedoc@0.28.19(typescript@5.9.3))
+        version: 4.11.0(typedoc@0.28.19(typescript@6.0.3))
       typescript:
-        specifier: ^5.9.3
-        version: 5.9.3
+        specifier: ^6.0.3
+        version: 6.0.3
 
   examples/common:
     dependencies:
@@ -44,7 +44,7 @@ importers:
         version: 8.0.10(esbuild@0.27.2)(yaml@2.8.3)
       vite-tsconfig-paths:
         specifier: ^6.1.1
-        version: 6.1.1(typescript@5.9.3)(vite@8.0.10(esbuild@0.27.2)(yaml@2.8.3))
+        version: 6.1.1(typescript@6.0.3)(vite@8.0.10(esbuild@0.27.2)(yaml@2.8.3))
 
   package:
     dependencies:
@@ -75,7 +75,7 @@ importers:
         version: 26.1.0
       vite-tsconfig-paths:
         specifier: ^6.1.1
-        version: 6.1.1(typescript@5.9.3)(vite@8.0.10(esbuild@0.27.2)(yaml@2.8.3))
+        version: 6.1.1(typescript@6.0.3)(vite@8.0.10(esbuild@0.27.2)(yaml@2.8.3))
 
 packages:
 
@@ -87,8 +87,8 @@ packages:
       '@biomejs/biome':
         optional: true
 
-  '@apst/tsconfig@0.2.1':
-    resolution: {integrity: sha512-geGD89aVK1uHXlCvkW9YJOkpFJnAxfdPuSFBQMIzbY06nZp9A0SLZwRtapGlxOeHWz4GJNxvJk30Pzsznar3iw==}
+  '@apst/tsconfig@0.3.0':
+    resolution: {integrity: sha512-1fvjlQLOexuVqZaQj7K+n/3GxEAk5WcbuSuUsaxpfxhEuWpTIGop04nGX7XENScZhkxm4+vFIFy1LsYLNpOUjQ==}
     peerDependencies:
       typescript: ^5.0.0 || ^6.0.0
     peerDependenciesMeta:
@@ -1299,8 +1299,8 @@ packages:
     peerDependencies:
       typescript: 5.0.x || 5.1.x || 5.2.x || 5.3.x || 5.4.x || 5.5.x || 5.6.x || 5.7.x || 5.8.x || 5.9.x || 6.0.x
 
-  typescript@5.9.3:
-    resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
+  typescript@6.0.3:
+    resolution: {integrity: sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -1497,15 +1497,15 @@ snapshots:
     optionalDependencies:
       '@biomejs/biome': 2.4.14
 
-  '@apst/tsconfig@0.2.1(typescript@5.9.3)':
+  '@apst/tsconfig@0.3.0(typescript@6.0.3)':
     optionalDependencies:
-      typescript: 5.9.3
+      typescript: 6.0.3
 
-  '@apst/tsdown@0.3.0(tsdown@0.21.10(typescript@5.9.3))':
+  '@apst/tsdown@0.3.0(tsdown@0.21.10(typescript@6.0.3))':
     dependencies:
       es-toolkit: 1.45.1
     optionalDependencies:
-      tsdown: 0.21.10(typescript@5.9.3)
+      tsdown: 0.21.10(typescript@6.0.3)
 
   '@asamuzakjp/css-color@3.2.0':
     dependencies:
@@ -2295,7 +2295,7 @@ snapshots:
 
   resolve-pkg-maps@1.0.0: {}
 
-  rolldown-plugin-dts@0.23.2(rolldown@1.0.0-rc.17)(typescript@5.9.3):
+  rolldown-plugin-dts@0.23.2(rolldown@1.0.0-rc.17)(typescript@6.0.3):
     dependencies:
       '@babel/generator': 8.0.0-rc.3
       '@babel/helper-validator-identifier': 8.0.0-rc.3
@@ -2309,7 +2309,7 @@ snapshots:
       picomatch: 4.0.4
       rolldown: 1.0.0-rc.17
     optionalDependencies:
-      typescript: 5.9.3
+      typescript: 6.0.3
     transitivePeerDependencies:
       - oxc-resolver
 
@@ -2433,11 +2433,11 @@ snapshots:
 
   ts-vista@0.2.3: {}
 
-  tsconfck@3.1.6(typescript@5.9.3):
+  tsconfck@3.1.6(typescript@6.0.3):
     optionalDependencies:
-      typescript: 5.9.3
+      typescript: 6.0.3
 
-  tsdown@0.21.10(typescript@5.9.3):
+  tsdown@0.21.10(typescript@6.0.3):
     dependencies:
       ansis: 4.2.0
       cac: 7.0.0
@@ -2448,7 +2448,7 @@ snapshots:
       obug: 2.1.1
       picomatch: 4.0.4
       rolldown: 1.0.0-rc.17
-      rolldown-plugin-dts: 0.23.2(rolldown@1.0.0-rc.17)(typescript@5.9.3)
+      rolldown-plugin-dts: 0.23.2(rolldown@1.0.0-rc.17)(typescript@6.0.3)
       semver: 7.7.4
       tinyexec: 1.1.1
       tinyglobby: 0.2.16
@@ -2456,7 +2456,7 @@ snapshots:
       unconfig-core: 7.5.0
       unrun: 0.2.37
     optionalDependencies:
-      typescript: 5.9.3
+      typescript: 6.0.3
     transitivePeerDependencies:
       - '@ts-macro/tsc'
       - '@typescript/native-preview'
@@ -2467,20 +2467,20 @@ snapshots:
   tslib@2.8.1:
     optional: true
 
-  typedoc-plugin-markdown@4.11.0(typedoc@0.28.19(typescript@5.9.3)):
+  typedoc-plugin-markdown@4.11.0(typedoc@0.28.19(typescript@6.0.3)):
     dependencies:
-      typedoc: 0.28.19(typescript@5.9.3)
+      typedoc: 0.28.19(typescript@6.0.3)
 
-  typedoc@0.28.19(typescript@5.9.3):
+  typedoc@0.28.19(typescript@6.0.3):
     dependencies:
       '@gerrit0/mini-shiki': 3.23.0
       lunr: 2.3.9
       markdown-it: 14.1.1
       minimatch: 10.2.5
-      typescript: 5.9.3
+      typescript: 6.0.3
       yaml: 2.8.3
 
-  typescript@5.9.3: {}
+  typescript@6.0.3: {}
 
   uc.micro@2.1.0: {}
 
@@ -2514,11 +2514,11 @@ snapshots:
       - tsx
       - yaml
 
-  vite-tsconfig-paths@6.1.1(typescript@5.9.3)(vite@8.0.10(esbuild@0.27.2)(yaml@2.8.3)):
+  vite-tsconfig-paths@6.1.1(typescript@6.0.3)(vite@8.0.10(esbuild@0.27.2)(yaml@2.8.3)):
     dependencies:
       debug: 4.4.3
       globrex: 0.1.2
-      tsconfck: 3.1.6(typescript@5.9.3)
+      tsconfck: 3.1.6(typescript@6.0.3)
       vite: 8.0.10(esbuild@0.27.2)(yaml@2.8.3)
     transitivePeerDependencies:
       - supports-color
