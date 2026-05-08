@@ -75,7 +75,7 @@ const setLengthFn = ({
                 isDefined: hvTrack && hvThumb,
                 total: _total,
                 view: _view,
-                viewOffset: viewOffset.current,
+                viewOffset: viewOffset.current ?? 0,
                 scrollbarLengthPrev: scrollbarLength,
                 scrollbarLengthNext:
                     result?.scrollbarLength ?? scrollbarLengthNext,

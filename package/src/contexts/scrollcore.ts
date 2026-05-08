@@ -60,18 +60,19 @@ type ScrollCore = {
 };
 
 /** `ScrollCore` context. */
-const ScrollCoreContext: Context<ScrollCore | null> =
-    Atom.createContext<ScrollCore | null>(null);
+const ScrollCoreContext: Context<ScrollCore | object> = Atom.createContext<
+    ScrollCore | object
+>({});
 
 /** Hook for using the `ScrollCore` context. */
 const useScrollCore = (): ScrollCore => {
-    const core: ScrollCore | null = Atom.useContext(ScrollCoreContext);
+    const core: ScrollCore | object = Atom.useContext(ScrollCoreContext);
 
-    if (core === null) {
+    if (Object.keys(core).length === 0) {
         throw new Error("useScrollCore must be used within a provider");
     }
 
-    return core;
+    return core as ScrollCore;
 };
 
 export type { ScrollCore, ScrollCoreOptions, ScrollCoreStates };

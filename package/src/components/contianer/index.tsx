@@ -6,7 +6,7 @@ import { useLengthHandler } from "#/hooks/length";
 import { useComponentPropsSetter } from "#/hooks/props";
 import { useScrollHandler } from "#/hooks/scroll";
 
-const _Container = (): Atom.Host<any> => {
+const _Container = (): Atom.JSX => {
     useLengthHandler();
     useScrollHandler();
     useComponentPropsSetter("container");
@@ -19,7 +19,7 @@ const _Container = (): Atom.Host<any> => {
 };
 
 /** Scrollbar container type. */
-type ContainerElement = ComponentTypes<typeof _Container>;
+type ContainerElement = ComponentTypes;
 
 const Container = Atom.c(_Container);
 

@@ -8,7 +8,7 @@ import { useScrollCore } from "#/contexts/scrollcore";
 import { useComponentPropsSetter } from "#/hooks/props";
 import { useThumbYHandler } from "#/hooks/thumb";
 
-const _ThumbY = (): Atom.Host<any> => {
+const _ThumbY = (): Atom.JSX => {
     const elRef: Required<Atom.Ref<DOM.AtomicoThis>> = Atom.useHost();
 
     const {
@@ -61,7 +61,7 @@ const _ThumbY = (): Atom.Host<any> => {
 };
 
 /** Scrollbar thumb Y type. */
-type ThumbYElement = ComponentTypes<typeof _ThumbY>;
+type ThumbYElement = ComponentTypes;
 
 const ThumbY = Atom.c(_ThumbY);
 

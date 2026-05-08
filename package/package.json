@@ -84,7 +84,7 @@
         "dist"
     ],
     "dependencies": {
-        "atomico": "^1.79.2",
+        "atomico": "^2.0.0",
         "csstype": "^3.2.3",
         "ts-vista": "~0.2.3"
     }

@@ -2,6 +2,7 @@
 
 ### What's Changed
 
+- upgrade `atomico`
 - optimize internal states logic
 
 ## 0.6.0 (2025-08-09)

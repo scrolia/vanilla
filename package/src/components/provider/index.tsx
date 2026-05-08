@@ -12,12 +12,33 @@ import { getPropsFromAttributes } from "#/functions/attribute";
 import { getComponentProps } from "#/functions/props/get";
 import { setComponentProps } from "#/functions/props/set";
 
-function _Provider(props: Atom.Props<typeof _Provider>): Atom.Host<any> {
+const providerProps = {
+    disabled: {
+        type: Boolean,
+        reflect: true,
+    },
+    page: {
+        type: Boolean,
+        reflect: true,
+    },
+    plugins: {
+        type: Array,
+        reflect: true,
+    },
+} as const satisfies Schema.PropTypes;
+
+type ProviderProps = typeof providerProps;
+
+function _Provider(
+    props: Schema.InferProps<ProviderProps>,
+): Atom.JSX<ProviderProps> {
     const elRef: Required<Atom.Ref<DOM.AtomicoThis>> = Atom.useHost();
 
     const [disabled] = Atom.useState<boolean>(props.disabled ?? false);
     const [page] = Atom.useState<boolean>(props.page ?? false);
-    const [plugins] = Atom.useState<Plugin[]>(props.plugins ?? []);
+    const [plugins] = Atom.useState<Plugin[]>(
+        (props.plugins as Plugin[]) ?? [],
+    );
 
     const contentRef = Atom.useRef<HTMLElement | null>();
 
@@ -58,28 +79,12 @@ function _Provider(props: Atom.Props<typeof _Provider>): Atom.Host<any> {
     );
 }
 
-_Provider.props = {
-    disabled: {
-        type: Boolean,
-        reflect: true,
-        attr: "disabled",
-    },
-    page: {
-        type: Boolean,
-        reflect: true,
-        attr: "page",
-    },
-    plugins: {
-        type: Array as Atom.Type<Plugin[]>,
-        reflect: true,
-        attr: "plugins",
-    },
-} satisfies Schema.SchemaProps;
-
 /** Scrollbar provider type. */
-type ProviderElement = ComponentTypes<typeof _Provider>;
+type ProviderElement = ComponentTypes<ProviderProps>;
 
-const Provider = Atom.c(_Provider);
+const Provider = Atom.c(_Provider, {
+    props: providerProps,
+});
 
 export type { ProviderElement };
 export { Provider };

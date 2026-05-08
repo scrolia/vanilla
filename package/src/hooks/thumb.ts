@@ -42,7 +42,7 @@ const handleOnPointerDown = ({
     const pointerOffset: number = axis === "x" ? event.clientX : event.clientY;
 
     const startPos: StartPos = {
-        viewOffset: viewOffset.current,
+        viewOffset: viewOffset.current ?? 0,
         pointerOffset,
     };
 
@@ -54,9 +54,9 @@ const handleOnPointerDown = ({
             isDisabled: disabled,
             isPage: page,
             isDefined: hvTrack && hvThumb,
-            total: total.current,
-            view: view.current,
-            viewOffset: viewOffset.current,
+            total: total.current ?? 0,
+            view: view.current ?? 0,
+            viewOffset: viewOffset.current ?? 0,
             pointerOffset,
         });
     }
@@ -64,8 +64,8 @@ const handleOnPointerDown = ({
     const handlePointerMove = (e: PointerEvent): void => {
         const _pointerOffset: number = axis === "x" ? e.clientX : e.clientY;
 
-        const _total: number = total.current;
-        const _view: number = view.current;
+        const _total: number = total.current ?? 0;
+        const _view: number = view.current ?? 0;
 
         const delta: number = _pointerOffset - startPos.pointerOffset;
         const ratio: number = _view / _total;
@@ -85,7 +85,7 @@ const handleOnPointerDown = ({
                     isDefined: hvTrack && hvThumb,
                     total: _total,
                     view: _view,
-                    viewOffset: viewOffset.current,
+                    viewOffset: viewOffset.current ?? 0,
                     pointerOffset: _pointerOffset,
                     viewOffsetInit: startPos.viewOffset,
                     pointerOffsetInit: startPos.pointerOffset,
@@ -137,9 +137,9 @@ const handleOnPointerDown = ({
                 isDisabled: disabled,
                 isPage: page,
                 isDefined: hvTrack && hvThumb,
-                total: total.current,
-                view: view.current,
-                viewOffset: viewOffset.current,
+                total: total.current ?? 0,
+                view: view.current ?? 0,
+                viewOffset: viewOffset.current ?? 0,
                 pointerOffset: axis === "x" ? e.clientX : e.clientY,
                 viewOffsetInit: startPos.viewOffset,
                 pointerOffsetInit: startPos.pointerOffset,

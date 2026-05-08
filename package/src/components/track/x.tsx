@@ -5,7 +5,7 @@ import * as Atom from "atomico";
 import { useScrollCore } from "#/contexts/scrollcore";
 import { useComponentPropsSetter } from "#/hooks/props";
 
-const _TrackX = (): Atom.Host<any> => {
+const _TrackX = (): Atom.JSX => {
     const {
         x: { setHvTrack },
     } = useScrollCore();
@@ -24,7 +24,7 @@ const _TrackX = (): Atom.Host<any> => {
 };
 
 /** Scrollbar track X type. */
-type TrackXElement = ComponentTypes<typeof _TrackX>;
+type TrackXElement = ComponentTypes;
 
 const TrackX = Atom.c(_TrackX);
 

@@ -49,8 +49,8 @@ importers:
   package:
     dependencies:
       atomico:
-        specifier: ^1.79.2
-        version: 1.79.2
+        specifier: ^2.0.0
+        version: 2.1.0
       csstype:
         specifier: ^3.2.3
         version: 3.2.3
@@ -762,8 +762,9 @@ packages:
     resolution: {integrity: sha512-trmleAnZ2PxN/loHWVhhx1qeOHSRXq4TDsBBxq3GqeJitfk3+jTQ+v/C1km/KYq9M7wKqCewMh+/NAvVH7m+bw==}
     engines: {node: '>=20.19.0'}
 
-  atomico@1.79.2:
-    resolution: {integrity: sha512-mshhLRMeIltNYbnQnqgnrvJ/uDa8XDfTQcjw3ymOygQqwHIQ4Sp0LcNYMCbACkV3DtV+eDXb9szwU4qMUuGwYQ==}
+  atomico@2.1.0:
+    resolution: {integrity: sha512-HNcN/swRH7DF9aBufP39FenPyTwxJct15Eg+KPRdEQvuqxvycZzVIno/bI1pPhWZutE3u9Wphz24kFkqNZuLUQ==}
+    hasBin: true
 
   balanced-match@4.0.4:
     resolution: {integrity: sha512-BLrgEcRTwX2o6gGxGOCNyMvGSp35YofuYzw9h1IMTRmKqttAZZVU67bdb9Pr2vUHA8+j3i2tJfjO6C6+4myGTA==}
@@ -1981,7 +1982,7 @@ snapshots:
       estree-walker: 3.0.3
       pathe: 2.0.3
 
-  atomico@1.79.2: {}
+  atomico@2.1.0: {}
 
   balanced-match@4.0.4: {}
 

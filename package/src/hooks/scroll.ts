@@ -49,7 +49,8 @@ const handleScrollFn = ({
     }
 
     const scrollbarOffsetNext: number =
-        (viewOffset.current / total.current) * view.current;
+        ((viewOffset.current ?? 0) / (total.current ?? 0)) *
+        (view.current ?? 0);
 
     let result: OnScrollResult | undefined;
 
@@ -62,9 +63,9 @@ const handleScrollFn = ({
                 isDisabled: disabled,
                 isPage: page,
                 isDefined: hvTrack && hvThumb,
-                total: total.current,
-                view: view.current,
-                viewOffset: viewOffset.current,
+                total: total.current ?? 0,
+                view: view.current ?? 0,
+                viewOffset: viewOffset.current ?? 0,
                 scrollbarOffsetPrev: scrollbarOffset,
                 scrollbarOffsetNext:
                     result?.scrollbarOffset ?? scrollbarOffsetNext,

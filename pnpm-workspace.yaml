@@ -3,6 +3,12 @@ packages:
     - ./test
     - ./examples/*
 
+autoInstallPeers: false
+strictPeerDependencies: false
+
+allowBuilds:
+    esbuild: false
+
 minimumReleaseAge: 1440
 
 minimumReleaseAgeExclude:

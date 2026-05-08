@@ -5,7 +5,7 @@ import * as Atom from "atomico";
 import { useScrollCore } from "#/contexts/scrollcore";
 import { useComponentPropsSetter } from "#/hooks/props";
 
-const _Content = (): Atom.Host<any> => {
+const _Content = (): Atom.JSX => {
     const { contentRef } = useScrollCore();
 
     useComponentPropsSetter("content");
@@ -21,7 +21,7 @@ const _Content = (): Atom.Host<any> => {
 };
 
 /** Scrollbar content type. */
-type ContentElement = ComponentTypes<typeof _Content>;
+type ContentElement = ComponentTypes;
 
 const Content = Atom.c(_Content);
 
