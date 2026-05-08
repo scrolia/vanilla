@@ -24,10 +24,9 @@ jobs:
                     - name: Windows
                       code: windows-latest
                 node:
-                    - 20
                     - 22
                     - 24
-                    - 25
+                    - 26
         steps:
             - name: Checkout
               uses: actions/checkout@v4
