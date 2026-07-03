@@ -1,7 +1,7 @@
 {
     "private": true,
     "devDependencies": {
-        "@apst/biome": "~0.3.1",
+        "@apst/biome": "~0.3.2",
         "@apst/tsconfig": "~0.3.0",
         "@apst/tsdown": "~0.3.0",
         "@biomejs/biome": "^2.5.2",
